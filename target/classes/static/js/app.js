@@ -53,7 +53,7 @@ angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'n
                 if (authorization === allowedAuthorization) {
                     return true;
                 } else {
-                    $location('/home');
+                    $location.path('/home');
                     throw 302;
                 }
             });
