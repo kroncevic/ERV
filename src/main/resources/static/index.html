@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <title>Rome!</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="http://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.css">
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body ng-app="app" ng-cloak class="ng-cloak" style="background-color: whitesmoke">
+
+<div class="container" ng-controller="navigation as nav" layout="row">
+
+    <div style="height: 100vh;">
+        <md-sidenav ng-show="nav.authenticated()"
+                    class="md-sidenav-left md-whiteframe-z2"
+                    md-component-id="left"
+                    md-is-locked-open="$mdMedia('gt-md')"
+                    md-disable-backdrop
+                    md-whiteframe="4">
+
+            <md-toolbar class="md-whiteframe-z2" layout="column" layout-align="start center" style="height: 250px">
+
+                <img alt="Logo image"
+                     src="https://upload.wikimedia.org/wikipedia/ang/2/24/Coat_of_arms_of_Rome.png"
+                     style="padding-top: 40px; width: 70%; height: 80%">
+
+            </md-toolbar>
+
+            <md-content layout-padding style="height: 400px">
+                <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                    Close Sidenav Left
+                </md-button>
+                <p >
+                    <md-list>
+                        <md-list-item>
+                        <md-button  style = "font-size: 18px" layout-fill class="md-primary " ng-click="nav.navHome()" target="_blank">Home
+                        </md-button>
+                        </md-list-item>
+
+                        <md-list-item>
+                        <md-button style = "font-size: 18px"  layout-fill class="md-primary " ng-click="nav.navAdmin()" target="_blank">Admin
+                        </md-button>
+                        </md-list-item>
+
+                        <md-list-item>
+                            <md-button style = "font-size: 18px"  layout-fill class="md-primary " ng-click="nav.navProfile()" target="_blank">Profile
+                            </md-button>
+                        </md-list-item>
+
+                    </md-list>
+
+                </p>
+            </md-content>
+
+        </md-sidenav>
+    </div>
+
+    <div style="width: 100%">
+        <md-toolbar class="md-whiteframe-1dp md-whiteframe-z2" ng-show="nav.authenticated()"
+                    style="background-color: white; width: 100%">
+            <div class="md-toolbar-tools">
+                <md-button ng-click="toggleLeft()"
+                           class="md-raised" hide-gt-md>
+                    Toggle left
+                </md-button>
+                <div class="md-title" style="color: #009688">{{sharedData.title}}</div>
+                <div flex>
+                </div>
+                <md-button ng-click="nav.logout()" class="md-raised">
+                    <i class="material-icons" style="vertical-align: middle; text-transform: none;  -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);">exit_to_app</i>
+                    <span style="vertical-align: middle">Logout</span>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <div ng-view class="container"></div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<script src="http://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/auth.js"></script>
+<script src="js/controllers/home.js"></script>
+<script src="js/controllers/admin.js"></script>
+<script src="js/controllers/navigation.js"></script>
+<script src="js/controllers/profile.js"></script>
+<script src="js/services/sharedDataService.js"></script>
+</body>
+</html>
