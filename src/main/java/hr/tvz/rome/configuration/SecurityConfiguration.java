@@ -1,5 +1,6 @@
 package hr.tvz.rome.configuration;
 
+import hr.tvz.rome.configuration.security.JwtAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +33,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private JdbcAuthenticationProvider jdbcAuthenticationProvider;
 
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
+
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(jdbcAuthenticationProvider);
@@ -40,10 +44,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.httpBasic().and().authorizeRequests()
-                .antMatchers("/partials/login.html", "/*")
-                .permitAll().anyRequest()
-                .authenticated().and()
+        http.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and().httpBasic().and().authorizeRequests()
+                .antMatchers("/partials/login.html", "/")
+                .permitAll().and().authorizeRequests().antMatchers("/rest/employee/").hasAuthority("ADMIN").anyRequest().authenticated().and()
                 .csrf().csrfTokenRepository(csrfTokenRepository()).and()
                 .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
     }
