@@ -2,13 +2,16 @@
     <md-card class="md-whiteframe-24dp" style="width: 500px" layout-padding>
 
         <div layout="row">
-        <i class="material-icons" style="padding-right: 5px; padding-top: 16px; color: #009688">person</i>
-        <h3 style="color: #009688">Login form</h3>
+            <i class="material-icons" style="padding-right: 5px; padding-top: 16px; color: #009688">person</i>
+
+            <h3 style="color: #009688">Login form</h3>
+
         </div>
 
         <div><span style="color: #F44336">{{controller.errorMsg}}</span></div>
 
         <form name="loginForm">
+
             <md-input-container class="md-block">
                 <label>Username</label>
                 <input required name="username" ng-model="controller.credentials.username">
@@ -27,11 +30,20 @@
                 </div>
             </md-input-container>
 
+
+            <md-checkbox ng-model="$root.rememberMe" aria-label="Remember me" class="md-primary" >
+                Remember me
+            </md-checkbox>
+
+            <br>
+
             <md-button ng-disabled="loginForm.$invalid || isUnchanged(user)"
                        ng-click="controller.login()" class="md-raised md-primary">
-                <i class="material-icons" style="color: white; vertical-align: middle; text-transform: none">exit_to_app</i>
+                <i class="material-icons"
+                   style="color: white; vertical-align: middle; text-transform: none">exit_to_app</i>
                 <span style="vertical-align: middle; color: white">Login</span>
             </md-button>
+
         </form>
     </md-card>
 </div>

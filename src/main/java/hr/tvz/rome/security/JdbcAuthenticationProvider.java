@@ -1,4 +1,4 @@
-package hr.tvz.rome.configuration;
+package hr.tvz.rome.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;

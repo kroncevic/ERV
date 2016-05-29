@@ -10,6 +10,7 @@ angular.module('navigation', ['ngRoute', 'auth'])
 
 			$scope.sharedData = {};
 			$scope.sharedData.title = null;
+			$scope.sharedData.authority = null;
 
 			self.credentials = {};
 
@@ -57,6 +58,7 @@ angular.module('navigation', ['ngRoute', 'auth'])
 			};
 
 			self.login = function() {
+
 				auth.authenticate(self.credentials, function(authenticated) {
 					if (authenticated) {
 						console.log("Login succeeded");
@@ -67,7 +69,8 @@ angular.module('navigation', ['ngRoute', 'auth'])
 						self.error = true;
 						self.errorMsg = 'Login failed';
 					}
-				})
+				});
+
 			};
 
 			self.logout = auth.clear;

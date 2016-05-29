@@ -1,4 +1,4 @@
-package hr.tvz.rome.configuration.security;
+package hr.tvz.rome.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

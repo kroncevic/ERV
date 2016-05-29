@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'ngMessages', 'auth', 'home', 'navigation', 'admin', 'profile']).config(function ($routeProvider, $httpProvider) {
+angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'ngMessages', 'auth', 'home', 'navigation', 'admin', 'profile', 'ngCookies']).config(function ($routeProvider) {
 
     $routeProvider.when('/', {
         templateUrl: '/partials/home.html',
@@ -27,8 +27,6 @@ angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'n
         controllerAs: 'controller'
     }).otherwise('/');
 
-    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
 }).config(['$mdThemingProvider', function ($mdThemingProvider) {
     'use strict';
 
@@ -40,23 +38,18 @@ angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'n
         });
 }]).run(function (auth) {
 
-    auth.init('/', '/login');
+    auth.init();
 
-}).factory('AuthService',['$location', '$http', function ($location, $http) {
+}).factory('AuthService',['$location', '$http', '$q', '$rootScope', function ($location, $http, $q, $rootScope) {
     return {
         authorize: function (allowedAuthorization) {
 
-            var promise = $http.get('rest/user/');
+            if($rootScope.authority === allowedAuthorization){
+                return true;
+            } else {
+                return $q.reject('Not Authenticated');
+            }
 
-            promise.success(function(data) {
-                var authorization = data.authorities[0].authority;
-                if (authorization === allowedAuthorization) {
-                    return true;
-                } else {
-                    $location.path('/home');
-                    throw 302;
-                }
-            });
         }
     }
 }]);
