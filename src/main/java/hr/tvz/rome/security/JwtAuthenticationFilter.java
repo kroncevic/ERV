@@ -25,6 +25,10 @@ import java.util.List;
  */
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
+    private static final String HEADER = "Authorization";
+    private static final String CLAIM_USERNAME = "username";
+    private static final String CLAIM_AUTHORITY = "authority";
+
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
@@ -32,15 +36,15 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        String authToken = httpRequest.getHeader("Authorization");
+        String authToken = httpRequest.getHeader(HEADER);
 
         Claims claims = jwtTokenUtil.getClaimsFromToken(authToken);
 
 
         if (claims != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-            String username = (String) claims.get("username");
-            String authority = (String) claims.get("authority");
+            String username = (String) claims.get(CLAIM_USERNAME);
+            String authority = (String) claims.get(CLAIM_AUTHORITY);
 
             List<GrantedAuthority> authorityList = new ArrayList<>();
             authorityList.add(new SimpleGrantedAuthority(authority));
