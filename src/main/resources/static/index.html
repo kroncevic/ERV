@@ -1,11 +1,12 @@
 <!doctype html>
 <html>
 <head>
-    <title>Rome!</title>
+    <title>AdriaIT</title>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.1/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="http://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.css">
     <link rel="stylesheet" href="css/customstyle.css">
+    <link rel="shortcut icon" type="image/png" href="img/logo.png" style="width: 16px; height: 16px"/>
     <style type="text/css">
         [ng\:cloak], [ng-cloak], .ng-cloak {
             display: none !important;
@@ -17,40 +18,43 @@
 
 <div class="container" ng-controller="navigation as nav" layout="row">
 
-    <div style="height: 100vh;">
+
         <md-sidenav ng-show="nav.authenticated()"
                     class="md-sidenav-left md-whiteframe-z2"
                     md-component-id="left"
                     md-is-locked-open="$mdMedia('gt-md')"
                     md-disable-backdrop
-                    md-whiteframe="4">
+                    class="md-whiteframe-z2" style="min-width: 200px; max-width: 200px">
 
-            <md-toolbar class="md-whiteframe-z2" layout="column" layout-align="start center" style="height: 250px">
-
+            <md-toolbar class="md-whiteframe-z2"  style="background-color: white">
+                <md-button ng-click="nav.navHome()" style="background-color: white">
                 <img alt="Logo image"
-                     src="https://upload.wikimedia.org/wikipedia/ang/2/24/Coat_of_arms_of_Rome.png"
-                     style="padding-top: 40px; width: 70%; height: 80%">
-
+                     src="img/logo.png"
+                    style="padding-top: 30px">
+                </md-button>
             </md-toolbar>
 
-            <md-content layout-padding style="height: 400px">
-                <md-button ng-click="close()" class="md-raised" hide-gt-md>
-                    Close Sidenavigation
+            <md-content layout-padding style="height: 400px" md-whiteframe-z2
+                    >
+                <div layout="row" layout-align="center center">
+                <md-button ng-click="close()" class="md-raised md-primary" hide-gt-md >
+                    <span style="color: white">Close</span>
                 </md-button>
+                </div>
                 <p >
                     <md-list>
                         <md-list-item>
-                        <md-button  style = "font-size: 18px" layout-fill class="md-primary " ng-click="nav.navHome()" target="_blank">Home
+                        <md-button  style = "font-size: 18px; text-transform: none; height: 100%; width: 100%" layout-fill class="md-primary " ng-click="nav.navHome()" target="_blank">Home
                         </md-button>
                         </md-list-item>
 
                         <md-list-item>
-                        <md-button style = "font-size: 18px"  layout-fill class="md-primary " ng-click="nav.navAdmin()" target="_blank">Admin
+                        <md-button style = "font-size: 18px; text-transform: none; height: 100%; width: 100%"  layout-fill class="md-primary " ng-click="nav.navAdmin()" target="_blank">Admin
                         </md-button>
                         </md-list-item>
 
                         <md-list-item>
-                            <md-button style = "font-size: 18px"  layout-fill class="md-primary " ng-click="nav.navProfile()" target="_blank">Profile
+                            <md-button style = "font-size: 18px; text-transform: none; height: 100%; width: 100%"  layout-fill class="md-primary " ng-click="nav.navProfile()" target="_blank">Profile
                             </md-button>
                         </md-list-item>
 
@@ -60,17 +64,17 @@
             </md-content>
 
         </md-sidenav>
-    </div>
+
 
     <div style="width: 100%">
-        <md-toolbar class="md-whiteframe-1dp md-whiteframe-z2" ng-show="nav.authenticated()"
-                    style="background-color: white; width: 100%">
+        <md-toolbar class="md-primary" ng-show="nav.authenticated()"
+                   >
             <div class="md-toolbar-tools">
                 <md-button ng-click="toggleLeft()"
                            class="md-raised" hide-gt-md>
                     Toggle left
                 </md-button>
-                <div class="md-title" style="color: #009688">{{sharedData.title}}</div>
+                <div class="md-title" style="color: white">{{sharedData.title}}</div>
                 <div flex>
                 </div>
                 <md-button ng-click="nav.logout()" class="md-raised">

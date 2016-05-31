@@ -45,7 +45,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/favicon.ico",
                         "/**/*.html",
                         "/**/*.css",
-                        "/**/*.js"
+                        "/**/*.js",
+                        "/**/*.png"
                 ).permitAll()
                 .antMatchers("/rest/auth").permitAll()
                 .anyRequest().authenticated();
