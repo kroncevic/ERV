@@ -2,9 +2,9 @@
     <md-card class="md-whiteframe-24dp" style="width: 500px" layout-padding>
 
         <div layout="row">
-            <i class="material-icons" style="padding-right: 5px; padding-top: 16px; color: #009688">person</i>
+            <i class="material-icons" style="padding-right: 5px; padding-top: 16px; color: #00BCD4">person</i>
 
-            <h3 style="color: #009688">Login form</h3>
+            <h3 style="color: #00BCD4">Login form</h3>
 
         </div>
 
@@ -25,13 +25,15 @@
                 <label>Password</label>
                 <input required name="password" ng-model="controller.credentials.password" type="password">
 
+
                 <div ng-messages="loginForm.password.$error">
                     <div ng-message="required">Password is required.</div>
                 </div>
+
             </md-input-container>
 
 
-            <md-checkbox ng-model="$root.rememberMe" aria-label="Remember me" class="md-primary" >
+            <md-checkbox ng-model="$root.rememberMe" aria-label="Remember me" class="cyan">
                 Remember me
             </md-checkbox>
 

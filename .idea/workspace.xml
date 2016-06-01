@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f502203-ca5d-4929-917e-275e3469bb37" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hr/tvz/rome/security/util/JwtTokenUtil.class" afterPath="$PROJECT_DIR$/target/classes/hr/tvz/rome/security/util/JwtTokenUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/employees.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controllers/employees.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/MyRomanDatabase.lck" afterPath="$PROJECT_DIR$/db/MyRomanDatabase.lck" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/MyRomanDatabase.log" afterPath="$PROJECT_DIR$/db/MyRomanDatabase.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/MyRomanDatabase.properties" afterPath="$PROJECT_DIR$/db/MyRomanDatabase.properties" />
@@ -10,8 +11,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/app.js" afterPath="$PROJECT_DIR$/target/classes/static/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/css/customstyle.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/customstyle.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/css/customstyle.css" afterPath="$PROJECT_DIR$/target/classes/static/css/customstyle.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/index.html" afterPath="$PROJECT_DIR$/target/classes/static/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/partials/login.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/partials/login.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/controllers/navigation.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controllers/navigation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/controllers/navigation.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controllers/navigation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rome.iws" />
@@ -38,26 +45,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/factories/auth.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1768">
-              <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78558224" vertical-offset="510" max-vertical-offset="1938">
-              <caret line="55" column="132" selection-start-line="55" selection-start-column="132" selection-end-line="55" selection-end-column="132" />
+            <state vertical-scroll-proportion="-7.576923" vertical-offset="1112" max-vertical-offset="2363">
+              <caret line="77" column="64" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="87" />
               <folding>
                 <element signature="n#style#0;n#link#4;n#head#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-toolbar#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-button#0;n#md-toolbar#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#md-button#0;n#md-toolbar#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#md-button#0;n#div#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -65,23 +65,55 @@
                 <element signature="n#style#0;n#i#0;n#md-button#0;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#md-button#0;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-button#1;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#md-button#1;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#md-button#1;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-button#2;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#md-button#2;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#md-button#2;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-button#3;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#md-button#3;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#md-button#3;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#md-toolbar#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#md-button#1;n#md-toolbar#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#md-button#1;n#md-toolbar#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-content#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#md-content#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityConfiguration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hr/tvz/rome/configuration/SecurityConfiguration.java">
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="969">
-              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+            <state vertical-scroll-proportion="5.3461537" vertical-offset="190" max-vertical-offset="731">
+              <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="employees.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/employees.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.28280962" vertical-offset="0" max-vertical-offset="541">
+              <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#md-item-content#0;n#md-item#0;n#md-list#0;n#md-card-content#0;n#md-card#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#1;n#md-item-content#0;n#md-item#0;n#md-list#0;n#md-card-content#0;n#md-card#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#1;n#md-item-content#0;n#md-item#0;n#md-list#0;n#md-card-content#0;n#md-card#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,8 +121,8 @@
       <file leaf-file-name="customstyle.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/customstyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -99,28 +131,8 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
+            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="527">
               <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1360">
-              <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-              <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -129,8 +141,8 @@
       <file leaf-file-name="navigation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/navigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1428">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1496">
+              <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -139,8 +151,18 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="1071">
-              <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="employees.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/employees.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1309">
+              <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -149,10 +171,13 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153" vertical-offset="306" max-vertical-offset="918">
-              <caret line="43" column="51" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="51" />
+            <state vertical-scroll-proportion="-2.6153846" vertical-offset="306" max-vertical-offset="952">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
+                <element signature="n#style#0;n#i#0;n#div#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#md-button#0;n#form#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#md-button#0;n#form#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -173,8 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers/auth.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/services/shareedDataService.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/services/sharedDataService.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers/home.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers/userData.js" />
@@ -209,21 +232,23 @@
         <option value="$PROJECT_DIR$/src/main/java/hr/tvz/rome/security/entity/JwtAuthenticationResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/hr/tvz/rome/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hr/tvz/rome/security/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers/navigation.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/factories/auth.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/partials/login.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/profile.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/partials/home.html" />
         <option value="$PROJECT_DIR$/src/main/java/hr/tvz/rome/dao/employee/EmployeeDaoImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/hr/tvz/rome/security/JwtAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/hr/tvz/rome/security/util/JwtTokenUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/hr/tvz/rome/configuration/SecurityConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/customstyle.css" />
         <option value="$PROJECT_DIR$/src/main/java/hr/tvz/rome/Main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers/navigation.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/app.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/customstyle.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/login.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controllers/employees.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/employees.html" />
       </list>
     </option>
   </component>
@@ -273,6 +298,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -287,7 +313,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rome" />
+              <option name="myItemId" value="TvzRome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -297,7 +323,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rome" />
+              <option name="myItemId" value="TvzRome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -311,7 +337,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rome" />
+              <option name="myItemId" value="TvzRome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -333,7 +359,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rome" />
+              <option name="myItemId" value="TvzRome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -359,7 +385,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rome" />
+              <option name="myItemId" value="TvzRome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -389,7 +415,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rome" />
+              <option name="myItemId" value="TvzRome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -419,7 +445,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rome" />
+              <option name="myItemId" value="TvzRome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -431,17 +457,72 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="rome" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TvzRome" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rome" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TvzRome" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
@@ -453,7 +534,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PricingPlanCorellation" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="recentsLimit" value="5" />
@@ -471,11 +552,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\Projects\TVZ\TvzRome\src\main\resources\static\js\controllers" />
+      <recent name="D:\Development\Projects\TVZ\TvzRome\src\main\resources\static\partials" />
       <recent name="D:\DevTools\Projects\rome\src\main\java\hr\tvz\rome\security\entity" />
       <recent name="D:\DevTools\Projects\rome\src\main\java\hr\tvz\rome\security" />
       <recent name="D:\DevTools\Projects\rome\src\main\java\hr\tvz\rome\services\employee" />
-      <recent name="D:\Projects\rome\src\main\resources\static\partials" />
-      <recent name="D:\Projects\rome\src\main\resources\static\js\controllers" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="hr.tvz.rome.security.controller" />
@@ -918,11 +999,12 @@
       <workItem from="1464616262354" duration="11157000" />
       <workItem from="1464696147155" duration="5439000" />
       <workItem from="1464723258295" duration="4454000" />
+      <workItem from="1464764902801" duration="22339000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251461000" />
+    <option name="totallyTimeSpent" value="273800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1932" height="1047" extended-state="0" />
@@ -1023,20 +1105,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.0.4.RELEASE/spring-security-web-4.0.4.RELEASE.jar!/org/springframework/security/web/context/SecurityContextPersistenceFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2" vertical-offset="126" max-vertical-offset="1292">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.0.4.RELEASE/spring-security-web-4.0.4.RELEASE.jar!/org/springframework/security/web/context/request/async/WebAsyncManagerIntegrationFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.16" vertical-offset="0" max-vertical-offset="476">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.0.4.RELEASE/spring-security-web-4.0.4.RELEASE.jar!/org/springframework/security/web/FilterChainProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.72" vertical-offset="308" max-vertical-offset="2567">
@@ -1177,13 +1245,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/profile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
@@ -1195,13 +1256,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1054">
           <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="731">
-          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1317,16 +1371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="969">
           <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/customstyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1335,22 +1379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1768">
           <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/navigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1428">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1371,33 +1399,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.3461537" vertical-offset="190" max-vertical-offset="731">
+          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/navigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1496">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="1071">
-          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/customstyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="527">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153" vertical-offset="306" max-vertical-offset="918">
-          <caret line="43" column="51" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="51" />
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="306" max-vertical-offset="952">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#md-button#0;n#form#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#md-button#0;n#form#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controllers/employees.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1309">
+          <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78558224" vertical-offset="510" max-vertical-offset="1938">
-          <caret line="55" column="132" selection-start-line="55" selection-start-column="132" selection-end-line="55" selection-end-column="132" />
+        <state vertical-scroll-proportion="-7.576923" vertical-offset="1112" max-vertical-offset="2363">
+          <caret line="77" column="64" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="87" />
           <folding>
             <element signature="n#style#0;n#link#4;n#head#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-toolbar#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-button#0;n#md-toolbar#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#md-button#0;n#md-toolbar#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#md-button#0;n#div#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1405,10 +1487,32 @@
             <element signature="n#style#0;n#i#0;n#md-button#0;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#md-button#0;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-button#1;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#md-button#1;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#md-button#1;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-button#2;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#md-button#2;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#md-button#2;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-button#3;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#md-button#3;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#md-button#3;n#p#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#md-toolbar#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#md-button#1;n#md-toolbar#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#md-button#1;n#md-toolbar#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-content#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#md-content#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/employees.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28280962" vertical-offset="0" max-vertical-offset="541">
+          <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#md-item-content#0;n#md-item#0;n#md-list#0;n#md-card-content#0;n#md-card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#1;n#md-item-content#0;n#md-item#0;n#md-list#0;n#md-card-content#0;n#md-card#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#1;n#md-item-content#0;n#md-item#0;n#md-list#0;n#md-card-content#0;n#md-card#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -16,7 +16,7 @@
 
 <body ng-app="app" ng-cloak class="ng-cloak" style="background-color: whitesmoke">
 
-<div class="container" ng-controller="navigation as nav" layout="row">
+<div class="container" ng-controller="navigation as nav" layout="row" flex style="background-color: whitesmoke;">
 
 
     <md-sidenav ng-show="nav.authenticated()"
@@ -24,9 +24,9 @@
                 md-component-id="left"
                 md-is-locked-open="$mdMedia('gt-md')"
                 md-disable-backdrop
-                class="md-whiteframe-z2" style="min-width: 200px; max-width: 200px; background-color: #1976D2">
+                class="md-whiteframe-z2" style="min-width: 200px; max-width: 200px; max-height: 700px">
 
-        <md-toolbar class="md-whiteframe-z2" style="background-color: white">
+        <md-toolbar style="background-color: white">
             <md-button ng-click="nav.navHome()" style="background-color: white">
                 <img alt="Logo image"
                      src="img/logo.png"
@@ -34,30 +34,50 @@
             </md-button>
         </md-toolbar>
 
-        <md-content  style="height: 400px; background-color: #1976D2" >
-            <div layout="row" layout-align="center center" >
-                <md-button ng-click="close()" class="md-raised" hide-gt-md>
+        <md-content style="height: 400px">
+            <div layout="row" layout-align="center center">
+                <md-button ng-click="close()" class="md-raised md-primary" hide-gt-md>
                     <span style="color: white">Close</span>
                 </md-button>
             </div>
-            <p style="padding: 0">
 
-                <md-button style="font-size: 18px; text-transform: none; margin: 0; border-radius: 0; height: 50px; text-align:left" layout-fill class="md-primary md-raised"
-                           ng-click="nav.navHome()" >
-                    <i class="material-icons" style="color: white; vertical-align: middle; text-transform: none">home</i>
+            <p style="padding: 0">
+                <md-divider></md-divider>
+                <md-subheader>Navigation</md-subheader>
+                <md-button
+                        style="font-size: 18px; text-transform: none; margin: 0; border-radius: 0; height: 50px; text-align:left"
+                        layout-fill
+                        ng-click="nav.navHome()" class="md-primary">
+                    <i class="material-icons md-primary" style="vertical-align: middle; text-transform: none">home</i>
 
                     <span style="vertical-align: middle">Home</span>
                 </md-button>
 
-                <md-button style="font-size: 18px; text-transform: none; margin: 0; border-radius: 0; height: 50px; text-align:left" layout-fill class="md-primary md-raised"
-                           ng-click="nav.navAdmin()" >Admin
+                <md-button
+                        style="font-size: 18px; text-transform: none; margin: 0; border-radius: 0; height: 50px; text-align:left"
+                        layout-fill
+                        ng-click="nav.navAdmin()" class="md-primary">
+                    <i class="material-icons md-primary" style="vertical-align: middle; text-transform: none">school</i>
+
+                    <span style="vertical-align: middle">Admin</span>
                 </md-button>
 
-                <md-button style="font-size: 18px; text-transform: none; margin: 0;  border-radius: 0; height: 50px; text-align:left" layout-fill class="md-primary md-raised"
-                           ng-click="nav.navProfile()">
-                    <i class="material-icons" style="color: white; vertical-align: middle; text-transform: none">person</i>
+                <md-button
+                        style="font-size: 18px; text-transform: none; margin: 0;  border-radius: 0; height: 50px; text-align:left"
+                        layout-fill
+                        ng-click="nav.navProfile()" class="md-primary">
+                    <i class="material-icons md-primary" style="vertical-align: middle; text-transform: none">person</i>
 
                     <span style="vertical-align: middle">Profile</span>
+                </md-button>
+
+                <md-button
+                        style="font-size: 18px; text-transform: none; margin: 0;  border-radius: 0; height: 50px; text-align:left"
+                        layout-fill
+                        ng-click="nav.navEmployees()" class="md-primary">
+                    <i class="material-icons md-primary" style="vertical-align: middle; text-transform: none">people</i>
+
+                    <span style="vertical-align: middle">Employees</span>
                 </md-button>
 
 
@@ -66,28 +86,30 @@
 
     </md-sidenav>
 
-
     <div style="width: 100%">
-        <md-toolbar class="md-primary" ng-show="nav.authenticated()"
-                >
-            <div class="md-toolbar-tools">
-                <md-button ng-click="toggleLeft()"
-                           class="md-raised" hide-gt-md>
-                    Toggle left
-                </md-button>
-                <div class="md-title" style="color: white">{{sharedData.title}}</div>
-                <div flex>
-                </div>
-                <md-button ng-click="nav.logout()" class="md-raised">
-                    <i class="material-icons" style="vertical-align: middle; text-transform: none;  -ms-transform: rotate(180deg); /* IE 9 */
+        <md-toolbar class="md-primary md-toolbar-tools" ng-show="nav.authenticated()">
+
+            <md-button ng-click="toggleLeft()"
+                       class="md-raised" hide-gt-md>
+                Toggle left
+            </md-button>
+            <div class="md-title" style="color: white">{{sharedData.title}}</div>
+            <div flex>
+            </div>
+            <md-button ng-click="nav.logout()" class="md-raised">
+                <i class="material-icons" style="vertical-align: middle; text-transform: none;  -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
     transform: rotate(180deg);">exit_to_app</i>
-                    <span style="vertical-align: middle">Logout</span>
-                </md-button>
-            </div>
+                <span style="vertical-align: middle">Logout</span>
+            </md-button>
+
         </md-toolbar>
 
-        <div ng-view class="container" style="margin: 20px"></div>
+
+        <md-content style="overflow-y: auto; max-height: 800px; background-color: whitesmoke">
+            <div ng-view class="container" style="margin: 20px"></div>
+        </md-content>
+
     </div>
 </div>
 
@@ -107,5 +129,6 @@
 <script src="js/controllers/admin.js"></script>
 <script src="js/controllers/navigation.js"></script>
 <script src="js/controllers/profile.js"></script>
+<script src="js/controllers/employees.js"></script>
 </body>
 </html>

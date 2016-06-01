@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'ngMessages', 'auth', 'home', 'navigation', 'admin', 'profile', 'ngCookies']).config(function ($routeProvider) {
+angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'ngMessages', 'auth', 'home', 'navigation', 'admin', 'profile', 'ngCookies', 'employees']).config(function ($routeProvider) {
 
     $routeProvider.when('/', {
         templateUrl: '/partials/home.html',
@@ -25,15 +25,19 @@ angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'n
         templateUrl: '/partials/profile.html',
         controller: 'profile',
         controllerAs: 'controller'
+    }).when('/employees', {
+        templateUrl: '/partials/employees.html',
+        controller: 'employees',
+        controllerAs: 'controller'
     }).otherwise('/');
 
 }).config(['$mdThemingProvider', function ($mdThemingProvider) {
     'use strict';
 
     $mdThemingProvider.theme('default')
-        .primaryPalette('blue',
+        .primaryPalette('cyan',
         {
-            'default' : '700'
+
         })
         .warnPalette('red', {
             'default': '900'

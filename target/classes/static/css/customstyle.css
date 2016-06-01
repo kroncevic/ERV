@@ -1,4 +1,12 @@
 md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
-    color: #03A9F4 !important;
-    background-color:#81D4FA !important;
+    color: #00BCD4 !important;
+    background-color: #80DEEA !important;
+}
+
+md-checkbox.md-checked.cyan .md-icon {
+    background-color: #00BCD4;
+}
+
+.user-avatar {
+    border-radius: 99%;
 }

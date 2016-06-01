@@ -28,8 +28,12 @@ angular.module('navigation', ['ngRoute', 'auth'])
 				$location.path('/admin');
 			};
 
-			self.navProfile = function navAdmin(){
+			self.navProfile = function navProfile(){
 				$location.path('/profile');
+			};
+
+			self.navEmployees = function navEmployees(){
+				$location.path('/employees');
 			};
 
 			function buildDelayedToggler(navID) {
