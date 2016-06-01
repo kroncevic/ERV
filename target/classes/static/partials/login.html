@@ -1,51 +1,76 @@
-<div layout="column" layout-align="center center" style="padding-top: 200px">
-    <md-card class="md-whiteframe-24dp" style="width: 500px" layout-padding>
+<div layout="column" layout-align="center center" style="padding-top: 200px" >
 
-        <div layout="row">
+    <md-card style="width: 500px">
+    
+    	<md-card-header style="background-color: #00BCD4; color: white">
+    	
+    		<span style="vertical-align: left">PRIJAVA</span>
+    	
+    	</md-card-header>
+
+ <!--   <div layout="row">
+ 
             <i class="material-icons" style="padding-right: 5px; padding-top: 16px; color: #00BCD4">person</i>
 
-            <h3 style="color: #00BCD4">Login form</h3>
+         	<h3 style="color: #00BCD4">Login form</h3>  
 
+        </div> 	  -->
+
+        <div>
+        
+        	<span style="color: #F44336">{{controller.errorMsg}}</span>
+        	
         </div>
 
-        <div><span style="color: #F44336">{{controller.errorMsg}}</span></div>
-
-        <form name="loginForm">
+        <form name="loginForm" layout-padding  style= "padding-top: 20px">
 
             <md-input-container class="md-block">
-                <label>Username</label>
+            
+                <label>Korisničko ime</label>
+                
                 <input required name="username" ng-model="controller.credentials.username">
 
                 <div ng-messages="loginForm.username.$error">
-                    <div ng-message="required">Username is required.</div>
+                
+                    <div ng-message="required">Unesite korisničko ime</div>
+                    
                 </div>
+                
             </md-input-container>
 
             <md-input-container class="md-block">
-                <label>Password</label>
+            
+                <label>Lozinka</label>
+                
                 <input required name="password" ng-model="controller.credentials.password" type="password">
 
-
                 <div ng-messages="loginForm.password.$error">
-                    <div ng-message="required">Password is required.</div>
+                
+                    <div ng-message="required">Unesite lozinku</div>
+                    
                 </div>
 
             </md-input-container>
 
-
-            <md-checkbox ng-model="$root.rememberMe" aria-label="Remember me" class="cyan">
-                Remember me
-            </md-checkbox>
+            <md-checkbox ng-model="$root.rememberMe" aria-label="Remember me" class="cyan">Zapamti me</md-checkbox>
 
             <br>
 
-            <md-button ng-disabled="loginForm.$invalid || isUnchanged(user)"
-                       ng-click="controller.login()" class="md-raised md-primary">
-                <i class="material-icons"
-                   style="color: white; vertical-align: middle; text-transform: none">exit_to_app</i>
-                <span style="vertical-align: middle; color: white">Login</span>
-            </md-button>
+			<div layout="row" layout-align="end" flex>
+			
+            	<md-button type= "submit" ng-disabled="loginForm.$invalid || isUnchanged(user)"
+            		ng-click="controller.login()" class="md-raised md-primary">
+            			
+                	<i class="material-icons" style="color: white; vertical-align: middle; text-transform: none">exit_to_app</i>
+                   		
+                	<span style="vertical-align: middle; color: white">Prijavi se</span>
+                		
+            	</md-button>
+            	
+            </div>
 
         </form>
+        
     </md-card>
+    
 </div>

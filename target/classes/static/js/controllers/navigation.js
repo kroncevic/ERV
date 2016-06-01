@@ -71,7 +71,7 @@ angular.module('navigation', ['ngRoute', 'auth'])
 					} else {
 						console.log("Login failed");
 						self.error = true;
-						self.errorMsg = 'Login failed';
+						self.errorMsg = 'Prijava neuspješna!';
 					}
 				});
 
