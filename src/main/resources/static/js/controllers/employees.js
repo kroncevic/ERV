@@ -1,6 +1,6 @@
 angular.module('employees', []).controller('employees', function($http, $scope) {
 
-	$scope.sharedData.title = 'Employees';
+	$scope.sharedData.title = 'Zaposlenici';
 
 	$scope.employees = [
 		{
