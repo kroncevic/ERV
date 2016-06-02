@@ -8,21 +8,9 @@
     	
     	</md-card-header>
 
- <!--   <div layout="row">
- 
-            <i class="material-icons" style="padding-right: 5px; padding-top: 16px; color: #00BCD4">person</i>
-
-         	<h3 style="color: #00BCD4">Login form</h3>  
-
-        </div> 	  -->
-
-        <div>
-        
-        	<span style="color: #F44336">{{controller.errorMsg}}</span>
-        	
-        </div>
-
         <form name="loginForm" layout-padding  style= "padding-top: 20px">
+
+            <span style="color: #F44336">{{controller.errorMsg}}</span>
 
             <md-input-container class="md-block">
             
@@ -52,7 +40,7 @@
 
             </md-input-container>
 
-            <md-checkbox ng-model="$root.rememberMe" aria-label="Remember me" class="cyan">Zapamti me</md-checkbox>
+            <md-checkbox ng-model="$root.rememberMe" aria-label="Remember me" class="cyan" style="margin-right: 10px; margin-left: 20px">Zapamti me</md-checkbox>
 
             <br>
 

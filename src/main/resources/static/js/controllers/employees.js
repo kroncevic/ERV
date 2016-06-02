@@ -2,6 +2,10 @@ angular.module('employees', []).controller('employees', function($http, $scope) 
 
 	$scope.sharedData.title = 'Zaposlenici';
 
+	$scope.showSearch = false;
+
+	$scope.searchName = "";
+
 	$scope.employees = [
 		{
 			name: 'Valentina Kovač',
