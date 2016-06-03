@@ -1,7 +1,7 @@
 package hr.tvz.rome.controllers;
 
 import hr.tvz.rome.model.Employee;
-import hr.tvz.rome.services.employee.EmployeeService;
+import hr.tvz.rome.repository.EmployeesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,15 +19,19 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    EmployeeService employeeService;
+    private EmployeesRepository employeesRepository;
 
     @RequestMapping(value = "/employee/", method = RequestMethod.GET)
     public ResponseEntity<List<Employee>> listAllUsers() {
-        List<Employee> users = employeeService.fetchAllEmployees();
-        if(users.isEmpty()){
+        List<Employee> employees = employeesRepository.findAll();
+        if (employees.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            employees.forEach(employee -> {
+
+            });
+            return new ResponseEntity<>(employees, HttpStatus.OK);
         }
-        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
 }

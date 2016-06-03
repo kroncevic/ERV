@@ -1,11 +1,16 @@
 package hr.tvz.rome.model;
 
+import javax.persistence.*;
+
 /**
  * Created by Marko on 22.5.2016..
  */
+@Entity
 public class Employee {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
 
     private String firstName;
 
@@ -20,8 +25,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String firstName, String lastName, String username, String password, String authorization) {
-        this.id = id;
+    public Employee(String firstName, String lastName, String username, String password, String authorization) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -29,11 +33,11 @@ public class Employee {
         this.authorization = authorization;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
