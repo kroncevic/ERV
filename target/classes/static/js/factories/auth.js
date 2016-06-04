@@ -41,6 +41,7 @@ angular.module('auth', []).factory(
 
                         $http.get('rest/user/').then(function (result) {
                             $rootScope.authority = result.data.authorities[0].authority;
+                            $rootScope.username = result.data.principal;
                         });
 
                         auth.authenticated = true;
@@ -77,6 +78,7 @@ angular.module('auth', []).factory(
                     $http.defaults.headers.common.Authorization = token;
                     $http.get('rest/user/').then(function (result) {
                         $rootScope.authority = result.data.authorities[0].authority;
+                        $rootScope.username = result.data.principal;
                     });
                 }
 

@@ -1,0 +1,76 @@
+<md-card style="max-width: 400px">
+    <md-content layout="column" layout-padding style="background-color: #006064; padding: 0">
+        <div layout="row" style="margin: 0">
+            <div style="margin-left: 10px">
+                <h4 style="color: white">Ime i prezime</h4>
+
+                <h3 style="text-decoration: underline; color: white">{{controller.name}}</h3>
+            </div>
+
+            <div flex="10"></div>
+
+            <div>
+                <h4 style="color: white">Vrijeme</h4>
+
+                <h3 style="text-decoration: underline; color: white">{{getDatetime | date:'dd.MM.yyyy HH:mm:ss'}}</h3>
+            </div>
+
+        </div>
+    </md-content>
+    <md-content layout-padding>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Tip evidencije</label>
+            <md-select ng-model="evidence.type">
+                <md-option value="Prijava">
+                    Prijava
+                </md-option>
+                <md-option value="Odjava">
+                    Odjava
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <form name="evidenceForm">
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Lokacija</label>
+                <input required name="location" ng-model="evidence.location">
+
+                <div ng-messages="evidenceForm.location.$error">
+
+                    <div ng-message="required">Unesite lokaciju</div>
+
+                </div>
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Projekt</label>
+                <input required name="project" ng-model="evidence.project">
+
+                <div ng-messages="evidenceForm.project.$error">
+
+                    <div ng-message="required">Unesite ime projekta</div>
+
+                </div>
+
+            </md-input-container>
+
+            <div layout="row" layout-align="end" flex>
+
+                <md-button  ng-disabled="evidenceForm.$invalid || isUnchanged(evidence)"
+                           ng-click="saveEvidence()" class="md-raised md-primary">
+
+                    <i class="material-icons" style="color: white; vertical-align: middle; text-transform: none">save</i>
+
+                    <span style="vertical-align: middle; color: white; text-transform: none">Spremi</span>
+
+                </md-button>
+
+            </div>
+
+        </form>
+
+    </md-content>
+</md-card>

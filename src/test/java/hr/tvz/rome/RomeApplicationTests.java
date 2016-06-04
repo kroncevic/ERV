@@ -1,7 +1,9 @@
 package hr.tvz.rome;
 
 import hr.tvz.rome.model.Employee;
+import hr.tvz.rome.model.Evidence;
 import hr.tvz.rome.repository.EmployeesRepository;
+import hr.tvz.rome.repository.EvidenceRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,9 +23,12 @@ public class RomeApplicationTests {
     @Autowired
     EmployeesRepository employeesRepository;
 
+    @Autowired
+    EvidenceRepository evidenceRepository;
+
+
     @Test
     public void test1() {
-        employeesRepository.deleteAll();
         List<Employee> employees = employeesRepository.findAll();
         Assert.assertNotNull(employees);
         Employee employee = employeesRepository.findByUsername("dlovric");
@@ -64,9 +69,17 @@ public class RomeApplicationTests {
         employeesRepository.save(employee);
         employee = new Employee("Miso", "Ilic", "milic", new BCryptPasswordEncoder().encode("password"), "ADMIN");
         employeesRepository.save(employee);
+        employee = new Employee("John", "Doe", "admin", new BCryptPasswordEncoder().encode("password"), "ADMIN");
+        employeesRepository.save(employee);
         List<Employee> employees = employeesRepository.findAll();
         Assert.assertNotNull(employees);
 
+    }
+
+    @Test
+    public void test3(){
+        List<Evidence> evidences =evidenceRepository.findAll();
+        Assert.assertNotNull(evidences);
     }
 
 }

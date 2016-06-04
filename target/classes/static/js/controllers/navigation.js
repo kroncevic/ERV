@@ -36,6 +36,10 @@ angular.module('navigation', ['ngRoute', 'auth'])
 				$location.path('/employees');
 			};
 
+			self.navEvidence = function navEvidence(){
+				$location.path('/evidence');
+			};
+
 			function buildDelayedToggler(navID) {
 				return debounce(function () {
 					$mdSidenav(navID)
