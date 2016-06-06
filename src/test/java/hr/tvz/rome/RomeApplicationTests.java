@@ -1,9 +1,12 @@
 package hr.tvz.rome;
 
+import hr.tvz.rome.model.DatePresentation;
 import hr.tvz.rome.model.Employee;
 import hr.tvz.rome.model.Evidence;
 import hr.tvz.rome.repository.EmployeesRepository;
 import hr.tvz.rome.repository.EvidenceRepository;
+import hr.tvz.rome.service.DatePresentationService;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,6 +29,9 @@ public class RomeApplicationTests {
 
     @Autowired
     EvidenceRepository evidenceRepository;
+    
+    @Autowired
+    DatePresentationService datePresentationService; 
 
 
     @Test
@@ -80,6 +87,12 @@ public class RomeApplicationTests {
     public void test3(){
         List<Evidence> evidences =evidenceRepository.findAll();
         Assert.assertNotNull(evidences);
+    }
+    
+    @Test
+    public void test4(){
+        DatePresentation datePresentation = datePresentationService.getDatePresentation(LocalDate.now());
+        Assert.assertNotNull(datePresentation);
     }
 
 }

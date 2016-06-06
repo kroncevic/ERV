@@ -1,5 +1,6 @@
 package hr.tvz.rome.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +15,11 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@ManyToMany
-	private Employee employee;
-	@ManyToOne
+	 @ManyToOne(cascade=CascadeType.MERGE)
+	private Employee leaderEmployee;
+	 @ManyToOne(cascade=CascadeType.MERGE)
 	private DatePresentation startDate;
-	@ManyToOne
+	 @ManyToOne(cascade=CascadeType.MERGE)
 	private DatePresentation endDate;
 
 	private String name;
@@ -28,12 +29,12 @@ public class Project {
 		return id;
 	}
 
-	public Employee getEmployee() {
-		return employee;
+	public Employee getLeaderEmployee() {
+		return leaderEmployee;
 	}
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setLeaderEmployee(Employee leaderEmployee) {
+		this.leaderEmployee = leaderEmployee;
 	}
 
 	public DatePresentation getStartDate() {

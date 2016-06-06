@@ -1,5 +1,6 @@
 package hr.tvz.rome.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +18,9 @@ public class BusinessUnit {
     private String name;
     private String note;
     
-	@ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
 	private Employee executive;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
 	private BusinessUnit parent;
     
 	public long getId() {

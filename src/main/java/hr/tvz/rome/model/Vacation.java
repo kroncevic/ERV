@@ -1,5 +1,6 @@
 package hr.tvz.rome.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,7 @@ public class Vacation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@ManyToOne
+	 @ManyToOne(cascade=CascadeType.MERGE)
 	private Employee employee;
 	private Integer duration;
 	private Integer year;

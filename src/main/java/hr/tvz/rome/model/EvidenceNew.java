@@ -2,6 +2,7 @@ package hr.tvz.rome.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,17 +18,17 @@ public class EvidenceNew {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Employee employee;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     private DatePresentation date;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     private TimePresentation time;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     private EvidenceType type;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     private EvidenceDirection direction;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Project project;
     
     @Temporal(TemporalType.TIMESTAMP)
