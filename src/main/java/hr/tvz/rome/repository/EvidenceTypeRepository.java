@@ -6,4 +6,6 @@ import hr.tvz.rome.model.EvidenceType;
 
 public interface EvidenceTypeRepository extends JpaRepository<EvidenceType, Long> {
 
+    EvidenceType findByName(String name);
+
 }

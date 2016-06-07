@@ -1,10 +1,13 @@
 package hr.tvz.rome.repository;
 
-import hr.tvz.rome.model.Evidence;
+import hr.tvz.rome.model.Employee;
+import hr.tvz.rome.model.EvidenceNew;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- * Created by Marko on 4.6.2016..
- */
-public interface EvidenceRepository extends JpaRepository<Evidence, Long> {
+import java.util.List;
+
+public interface EvidenceRepository extends JpaRepository<EvidenceNew, Long> {
+
+    List<EvidenceNew> findByEmployee(Employee employee);
+
 }

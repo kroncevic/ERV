@@ -1,11 +1,5 @@
 <md-card>
 
-<!--     <md-card-title>
-        <md-card-title-text>
-            <span class="md-headline">Admin page</span>
-        </md-card-title-text>
-    </md-card-title>	--> 
-
     <md-card-content>
         <md-table-container>
             <table md-table md-progress="promise">
@@ -13,40 +7,35 @@
                 <tr md-row>
 
                     <th md-column>
-                        <span>ID</span>
+                        <span>Ime</span>
                     </th>
 
                     <th md-column>
-                        <span>First name</span>
+                        <span>Tip evidencije</span>
                     </th>
 
                     <th md-column>
-                        <span>Last name</span>
+                        <span>Lokacija</span>
                     </th>
 
                     <th md-column>
-                        <span>Username</span>
+                        <span>Projekt</span>
                     </th>
 
                     <th md-column>
-                        <span>Password</span>
-                    </th>
-
-                    <th md-column>
-                        <span>Authority</span>
+                        <span>Vrijeme</span>
                     </th>
 
                 </tr>
                 </thead>
                 <tbody md-body>
                 <tr md-row
-                    ng-repeat="employee in employees">
-                    <td md-cell>{{employee.id}}</td>
-                    <td md-cell>{{employee.firstName}}</td>
-                    <td md-cell>{{employee.lastName}}</td>
-                    <td md-cell>{{employee.username}}</td>
-                    <td md-cell>{{employee.password}}</td>
-                    <td md-cell>{{employee.authorization}}</td>
+                    ng-repeat="evidence in evidences">
+                    <td md-cell>{{evidence.name}}</td>
+                    <td md-cell>{{evidence.type}}</td>
+                    <td md-cell>{{evidence.location}}</td>
+                    <td md-cell>{{evidence.project}}</td>
+                    <td md-cell>{{evidence.timestamp | date:'dd.MM.yyyy HH:mm:ss'}}</td>
                 </tr>
                 </tbody>
             </table>

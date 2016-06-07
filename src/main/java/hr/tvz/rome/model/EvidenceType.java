@@ -16,6 +16,13 @@ public class EvidenceType {
 	private String note;
 	private Boolean readOnly;
 
+	public EvidenceType() {
+	}
+
+	public EvidenceType(String name) {
+		this.name = name;
+	}
+
 	public long getId() {
 		return id;
 	}

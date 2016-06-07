@@ -40,6 +40,10 @@ angular.module('navigation', ['ngRoute', 'auth'])
 				$location.path('/evidence');
 			};
 
+			self.navMyEvidence = function navMyEvidence(){
+				$location.path('/myEvidence');
+			};
+
 			function buildDelayedToggler(navID) {
 				return debounce(function () {
 					$mdSidenav(navID)

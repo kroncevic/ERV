@@ -1,56 +1,51 @@
 package hr.tvz.rome.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Vacation {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	 @ManyToOne(cascade=CascadeType.MERGE)
-	private Employee employee;
-	private Integer duration;
-	private Integer year;
-	private String note;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Employee employee;
+    private Integer duration;
+    private Integer year;
+    private String note;
 
-	public long getId() {
-		return id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public Employee getEmployee() {
-		return employee;
-	}
+    public Employee getEmployee() {
+        return employee;
+    }
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
-	public Integer getDuration() {
-		return duration;
-	}
+    public Integer getDuration() {
+        return duration;
+    }
 
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-	}
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
 
-	public Integer getYear() {
-		return year;
-	}
+    public Integer getYear() {
+        return year;
+    }
 
-	public void setYear(Integer year) {
-		this.year = year;
-	}
+    public void setYear(Integer year) {
+        this.year = year;
+    }
 
-	public String getNote() {
-		return note;
-	}
+    public String getNote() {
+        return note;
+    }
 
-	public void setNote(String note) {
-		this.note = note;
-	}
+    public void setNote(String note) {
+        this.note = note;
+    }
 }

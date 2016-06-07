@@ -1,29 +1,19 @@
-package hr.tvz.rome.model;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package hr.tvz.rome.controllers.entities;
 
 /**
- * Created by Marko on 4.6.2016..
+ * Created by marko on 6/6/2016.
  */
-@Entity
-public class Evidence {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+public class EvidenceRequest {
 
     private String username;
     private String type;
     private String location;
     private String project;
 
-    public Evidence() {
+    public EvidenceRequest() {
     }
 
-    public Evidence(String username, String type, String location, String project) {
+    public EvidenceRequest(String username, String type, String location, String project) {
         this.username = username;
         this.type = type;
         this.location = location;

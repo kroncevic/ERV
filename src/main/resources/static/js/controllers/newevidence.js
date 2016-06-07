@@ -1,4 +1,4 @@
-angular.module('evidence', []).controller('evidence', function($http, $scope, $rootScope, $location) {
+angular.module('newEvidence', []).controller('newEvidence', function($http, $scope, $rootScope, $location) {
 	var self = this;
 	$scope.sharedData.title = 'Evidencija radnog vremena';
 
@@ -16,7 +16,7 @@ angular.module('evidence', []).controller('evidence', function($http, $scope, $r
 		$http.post('rest/evidence', $scope.evidence)
 			.then(
 			function(response){
-				$location.path('/home');
+				$location.path('/myEvidence');
 				return response.data;
 			},
 			function(errResponse){

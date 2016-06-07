@@ -25,6 +25,13 @@ public class Project {
 	private String name;
 	private String note;
 
+	public Project() {
+	}
+
+	public Project(String name) {
+		this.name = name;
+	}
+
 	public long getId() {
 		return id;
 	}

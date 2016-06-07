@@ -30,16 +30,28 @@ public class EvidenceNew {
     private EvidenceDirection direction;
     @ManyToOne(cascade=CascadeType.MERGE)
     private Project project;
+	@ManyToOne(cascade=CascadeType.MERGE)
+	private Location location;
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
-    
+
     //guest data
     private Boolean guest;
     private String guestFirstName;
     private String guestLastName;
     private String guestOrganizationName;
-    
+
+	public EvidenceNew() {
+	}
+
+	public EvidenceNew(Employee employee, Project project, Location location, Date timestamp, EvidenceType type) {
+		this.employee = employee;
+		this.project = project;
+		this.location = location;
+		this.timestamp = timestamp;
+		this.type = type;
+	}
 
 	public long getId() {
 		return id;
@@ -131,6 +143,14 @@ public class EvidenceNew {
 
 	public void setGuestOrganizationName(String guestOrganizationName) {
 		this.guestOrganizationName = guestOrganizationName;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 }

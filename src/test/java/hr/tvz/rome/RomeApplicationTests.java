@@ -2,11 +2,11 @@ package hr.tvz.rome;
 
 import hr.tvz.rome.model.DatePresentation;
 import hr.tvz.rome.model.Employee;
-import hr.tvz.rome.model.Evidence;
+import hr.tvz.rome.model.EvidenceType;
 import hr.tvz.rome.repository.EmployeesRepository;
 import hr.tvz.rome.repository.EvidenceRepository;
+import hr.tvz.rome.repository.EvidenceTypeRepository;
 import hr.tvz.rome.service.DatePresentationService;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,11 +28,14 @@ public class RomeApplicationTests {
     EmployeesRepository employeesRepository;
 
     @Autowired
-    EvidenceRepository evidenceRepository;
-    
-    @Autowired
-    DatePresentationService datePresentationService; 
+    EvidenceTypeRepository evidenceTypeRepository;
 
+
+    @Autowired
+    DatePresentationService datePresentationService;
+
+    @Autowired
+    EvidenceRepository evidenceRepository;
 
     @Test
     public void test1() {
@@ -84,15 +87,23 @@ public class RomeApplicationTests {
     }
 
     @Test
-    public void test3(){
-        List<Evidence> evidences =evidenceRepository.findAll();
-        Assert.assertNotNull(evidences);
+    public void test3() {
+        evidenceTypeRepository.deleteAll();
+        EvidenceType evidenceType = new EvidenceType("Prijava");
+        evidenceTypeRepository.saveAndFlush(evidenceType);
+        evidenceType = new EvidenceType("Odjava");
+        evidenceTypeRepository.saveAndFlush(evidenceType);
     }
-    
+
     @Test
-    public void test4(){
+    public void test4() {
         DatePresentation datePresentation = datePresentationService.getDatePresentation(LocalDate.now());
         Assert.assertNotNull(datePresentation);
+    }
+
+    @Test
+    public void test5() {
+        evidenceRepository.deleteAll();
     }
 
 }

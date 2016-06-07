@@ -34,7 +34,7 @@
             </md-button>
         </md-toolbar>
 
-        <md-content style="height: 400px">
+        <md-content>
             <div layout="row" layout-align="center center">
                 <md-button ng-click="close()" class="md-raised md-primary" hide-gt-md>
                     <span style="color: white">Close</span>
@@ -92,6 +92,15 @@
                     <span style="vertical-align: middle">Napravi evidenciju</span>
                 </md-button>
 
+                <md-button
+                        style="font-size: 18px; text-transform: none; margin: 0;  border-radius: 0; height: 50px; text-align:left"
+                        layout-fill
+                        ng-click="nav.navMyEvidence()" class="md-primary">
+                    <i class="material-icons md-primary" style="vertical-align: middle; text-transform: none">description</i>
+
+                    <span style="vertical-align: middle">Moje evidencije</span>
+                </md-button>
+
             </p>
         </md-content>
 
@@ -141,6 +150,7 @@
 <script src="js/controllers/navigation.js"></script>
 <script src="js/controllers/profile.js"></script>
 <script src="js/controllers/employees.js"></script>
-<script src="js/controllers/worktimeevidence.js"></script>
+<script src="js/controllers/newevidence.js"></script>
+<script src="js/controllers/myevidences.js"></script>
 </body>
 </html>

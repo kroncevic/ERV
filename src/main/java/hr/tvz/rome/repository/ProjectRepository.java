@@ -6,4 +6,6 @@ import hr.tvz.rome.model.Project;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
 
+    Project findByName(String name);
+
 }
