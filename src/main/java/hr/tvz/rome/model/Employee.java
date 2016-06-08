@@ -1,6 +1,10 @@
 package hr.tvz.rome.model;
 
+import java.util.Date;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.Type;
 
 /**
  * Created by Marko on 22.5.2016..
@@ -21,7 +25,37 @@ public class Employee {
     private String password;
 
     private String authorization;
-
+    
+    private String qualifications;
+    
+    private String vocation;
+    
+    private String university;
+    
+    private String department;
+    
+    private String workingPlace;
+    
+    private String contract;
+    
+    private String email;
+    
+    private String phoneNumber;
+    
+    private String address;
+    
+    private String country;
+    
+    private String city;
+    
+    private String citizenship;
+    
+    @Column(columnDefinition = "date")
+    private Date birthDate;
+    
+    @Column(columnDefinition = "date")
+    private Date employmentDate;
+    
     public Employee() {
     }
 
@@ -31,13 +65,38 @@ public class Employee {
         this.username = username;
         this.password = password;
         this.authorization = authorization;
-    }
+    } 
+    
+    public Employee(String firstName, String lastName, String username, String password, String authorization,
+    	String qualifications, String vocation, String university, String department,
+		String workingPlace, String contract, String email, String phoneNumber, String address,
+		String country, String city, String citizenship, Date birthDate, Date employmentDate) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.username = username;
+	this.password = password;
+	this.authorization = authorization;
+	this.qualifications = qualifications;
+	this.vocation = vocation;
+	this.university = university;
+	this.department = department;
+	this.workingPlace = workingPlace;
+	this.contract = contract;
+	this.email = email;
+	this.phoneNumber = phoneNumber;
+	this.address = address;
+	this.country = country;
+	this.city = city;
+	this.citizenship = citizenship;
+	this.birthDate = birthDate;
+	this.employmentDate = employmentDate;
+}
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+	public void setId(long id) {
         this.id = id;
     }
 
@@ -80,4 +139,117 @@ public class Employee {
     public void setAuthorization(String authorization) {
         this.authorization = authorization;
     }
+
+	public String getQualifications() {
+		return qualifications;
+	}
+
+	public void setQualifications(String qualifications) {
+		this.qualifications = qualifications;
+	}
+
+	public String getVocation() {
+		return vocation;
+	}
+
+	public void setVocation(String vocation) {
+		this.vocation = vocation;
+	}
+
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getWorkingPlace() {
+		return workingPlace;
+	}
+
+	public void setWorkingPlace(String workingPlace) {
+		this.workingPlace = workingPlace;
+	}
+
+	public String getContract() {
+		return contract;
+	}
+
+	public void setContract(String contract) {
+		this.contract = contract;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getaddress() {
+		return address;
+	}
+
+	public void setaddress(String address) {
+		this.address = address;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getcitizenship() {
+		return citizenship;
+	}
+
+	public void setcitizenship(String citizenship) {
+		this.citizenship = citizenship;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Date getEmploymentDate() {
+		return employmentDate;
+	}
+
+	public void setEmploymentDate(Date employmentDate) {
+		this.employmentDate = employmentDate;
+	}
+    
 }
