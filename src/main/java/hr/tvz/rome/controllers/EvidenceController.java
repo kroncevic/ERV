@@ -4,6 +4,7 @@ import hr.tvz.rome.controllers.entities.EvidenceRequest;
 import hr.tvz.rome.model.*;
 import hr.tvz.rome.model.decorators.EvidenceDecorator;
 import hr.tvz.rome.repository.*;
+import hr.tvz.rome.utilities.DateTimeBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -79,6 +80,13 @@ public class EvidenceController {
         List<EvidenceDecorator> evidenceDecorators = new ArrayList<>();
         evidenceRepository.findByEmployee(employee).forEach(evidence -> evidenceDecorators.add(new EvidenceDecorator(evidence)));
         return new ResponseEntity<>(evidenceDecorators, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/evidence/today", method = RequestMethod.GET)
+    public List<EvidenceDecorator> listToday() {
+        List<EvidenceDecorator> evidenceDecorators = new ArrayList<>();
+        evidenceRepository.findByTimestampGreaterThanEqual(DateTimeBuilder.fromDateTime(DateTimeBuilder.now().buildDateTime().getStartOfDay()).buildDate()).forEach(evidence -> evidenceDecorators.add(new EvidenceDecorator(evidence)));
+        return evidenceDecorators;
     }
 
 }
