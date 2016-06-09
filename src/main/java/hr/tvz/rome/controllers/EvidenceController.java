@@ -11,8 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -87,6 +85,15 @@ public class EvidenceController {
         List<EvidenceDecorator> evidenceDecorators = new ArrayList<>();
         evidenceRepository.findByTimestampGreaterThanEqual(DateTimeBuilder.fromDateTime(DateTimeBuilder.now().buildDateTime().getStartOfDay()).buildDate()).forEach(evidence -> evidenceDecorators.add(new EvidenceDecorator(evidence)));
         return evidenceDecorators;
+    }
+
+    @RequestMapping(value = "/evidence/latest/{username}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<EvidenceDecorator> findLatestUserEvidence(@PathVariable("username") String username) {
+        Employee employee = employeesRepository.findByUsername(username);
+        if (employee == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(new EvidenceDecorator(evidenceRepository.findFirstByEmployeeOrderByTimestampDesc(employee)), HttpStatus.OK);
     }
 
 }

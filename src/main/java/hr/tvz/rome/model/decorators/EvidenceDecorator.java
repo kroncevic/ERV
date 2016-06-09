@@ -19,12 +19,16 @@ public class EvidenceDecorator {
     private String type;
 
     public EvidenceDecorator(EvidenceNew evidenceNew) {
-        this.username = evidenceNew.getEmployee().getUsername();
-        this.name = String.format("%s %s", evidenceNew.getEmployee().getFirstName(), evidenceNew.getEmployee().getLastName());
-        this.timestamp = new SimpleDateFormat(dateFormat).format(evidenceNew.getTimestamp());
-        this.location = evidenceNew.getLocation().getName();
-        this.project = evidenceNew.getProject().getName();
-        this.type = evidenceNew.getType().getName();
+        if (evidenceNew != null) {
+            this.username = evidenceNew.getEmployee().getUsername();
+            this.name = String.format("%s %s", evidenceNew.getEmployee().getLastName(), evidenceNew.getEmployee().getFirstName());
+            this.timestamp = new SimpleDateFormat(dateFormat).format(evidenceNew.getTimestamp());
+            this.location = evidenceNew.getLocation().getName();
+            this.project = evidenceNew.getProject().getName();
+            if (evidenceNew.getType() != null) {
+                this.type = evidenceNew.getType().getName();
+            }
+        }
     }
 
     public String getUsername() {

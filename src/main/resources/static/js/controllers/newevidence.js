@@ -4,7 +4,7 @@ angular.module('newEvidence', []).controller('newEvidence', function($http, $sco
 
 	$scope.evidence = {
 		username : undefined,
-		type : 'Prijava',
+		type : undefined,
 		location : undefined,
 		project : undefined
 	};
@@ -27,8 +27,22 @@ angular.module('newEvidence', []).controller('newEvidence', function($http, $sco
 
 	};
 
+
+	$scope.isSignedin = undefined;
+
 	$http.get('rest/employee/'+ $rootScope.username).then(function(response) {
 		self.name = response.data.firstName + ' ' + response.data.lastName;
 		$scope.evidence.username = response.data.username;
+		$http.get('rest/evidence/latest/'+ $rootScope.username).then(function(response) {
+			$scope.evidence.type = response.data.type;
+			$scope.isSignedin = $scope.evidence.type === 'Prijava';
+			if($scope.isSignedin){
+				$scope.evidence.type = 'Odjava';
+				$scope.evidence.location = response.data.location;
+				$scope.evidence.project = response.data.project;
+			} else {
+				$scope.evidence.type = 'Prijava';
+			}
+		});
 	});
 });

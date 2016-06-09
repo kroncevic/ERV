@@ -3,10 +3,10 @@
     <md-card-content>
         <md-table-container>
             <table md-table md-progress="promise">
-                <thead md-head>
+                <thead md-head md-order="query.order" md-on-reorder="logOrder">
                 <tr md-row>
 
-                    <th md-column>
+                    <th md-column md-order-by="name">
                         <span>Ime</span>
                     </th>
 
@@ -22,7 +22,7 @@
                         <span>Projekt</span>
                     </th>
 
-                    <th md-column>
+                    <th md-column md-order-by="timestamp">
                         <span>Vrijeme</span>
                     </th>
 
@@ -30,7 +30,7 @@
                 </thead>
                 <tbody md-body>
                 <tr md-row
-                    ng-repeat="evidence in evidences">
+                    ng-repeat="evidence in evidences | orderBy: query.order">
                     <td md-cell>{{evidence.name}}</td>
                     <td md-cell>{{evidence.type}}</td>
                     <td md-cell>{{evidence.location}}</td>

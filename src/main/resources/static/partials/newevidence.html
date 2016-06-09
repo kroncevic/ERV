@@ -4,7 +4,7 @@
             <div style="margin-left: 10px">
                 <h4 style="color: white">Ime i prezime</h4>
 
-                <h3 style="text-decoration: underline; color: white">{{controller.name}}</h3>
+                <h3 style=" color: white">{{controller.name}}</h3>
             </div>
 
             <div flex="10"></div>
@@ -12,30 +12,22 @@
             <div>
                 <h4 style="color: white">Vrijeme</h4>
 
-                <h3 style="text-decoration: underline; color: white">{{getDatetime | date:'dd.MM.yyyy HH:mm:ss'}}</h3>
+                <h3 style=" color: white">{{getDatetime | date:'dd.MM.yyyy HH:mm:ss'}}</h3>
             </div>
 
         </div>
     </md-content>
     <md-content layout-padding>
 
-        <md-input-container class="md-block" flex-gt-sm>
-            <label>Tip evidencije</label>
-            <md-select ng-model="evidence.type">
-                <md-option value="Prijava">
-                    Prijava
-                </md-option>
-                <md-option value="Odjava">
-                    Odjava
-                </md-option>
-            </md-select>
-        </md-input-container>
+
+        <h2 ng-show="!isSignedin">Prijava</h2>
+        <h2 ng-show="isSignedin">Odjava</h2>
 
         <form name="evidenceForm">
 
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Lokacija</label>
-                <input required name="location" ng-model="evidence.location">
+                <input required name="location" ng-model="evidence.location"  ng-disabled="isSignedin">
 
                 <div ng-messages="evidenceForm.location.$error">
 
@@ -47,7 +39,7 @@
 
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Projekt</label>
-                <input required name="project" ng-model="evidence.project">
+                <input required name="project" ng-model="evidence.project"  ng-disabled="isSignedin">
 
                 <div ng-messages="evidenceForm.project.$error">
 
@@ -59,10 +51,11 @@
 
             <div layout="row" layout-align="end" flex>
 
-                <md-button  ng-disabled="evidenceForm.$invalid || isUnchanged(evidence)"
+                <md-button ng-disabled="evidenceForm.$invalid || isUnchanged(evidence)"
                            ng-click="saveEvidence()" class="md-raised md-primary">
 
-                    <i class="material-icons" style="color: white; vertical-align: middle; text-transform: none">save</i>
+                    <i class="material-icons"
+                       style="color: white; vertical-align: middle; text-transform: none">save</i>
 
                     <span style="vertical-align: middle; color: white; text-transform: none">Spremi</span>
 
