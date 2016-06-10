@@ -70,7 +70,7 @@ public class Employee {
     public Employee(String firstName, String lastName, String username, String password, String authorization,
     	String qualifications, String vocation, String university, String department,
 		String workingPlace, String contract, String email, String phoneNumber, String address,
-		String country, String city, String citizenship, Date birthDate, Date employmentDate) {
+		String city, String country, String citizenship, Date birthDate, Date employmentDate) {
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.username = username;
@@ -85,8 +85,8 @@ public class Employee {
 	this.email = email;
 	this.phoneNumber = phoneNumber;
 	this.address = address;
-	this.country = country;
 	this.city = city;
+	this.country = country;
 	this.citizenship = citizenship;
 	this.birthDate = birthDate;
 	this.employmentDate = employmentDate;

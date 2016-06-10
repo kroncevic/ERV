@@ -1,20 +1,74 @@
 <md-card>
-    <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="one">
-            <md-content class="md-padding">
-                <h1 class="md-display-2">Tab One</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-            </md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-progress="promise">
+        <md-tab label="Osobni podaci i evidencije">
+           <md-content class="md-padding" layout-xs="column" layout="row">
+    			<div flex-xs flex-gt-xs="50" layout="column">
+           			<md-card>
+        				<md-card-title layout-padding style="background-color: #006064; padding: 0">
+          					<md-card-title-text style="color: white">
+            					<span class="md-headline">Osobni podaci</span>
+          					</md-card-title-text>
+        				</md-card-title>
+        				<md-card-content>
+        					<p></p>
+          					<p>Ime i prezime:	{{controller.name}}</p>
+          					<p>Državljanstvo:	{{controller.citizenship}}</p>
+          					<p>Datum rođenja:	{{controller.birthDate  | date:'dd.MM.yyyy.'}}</p>
+          					<p>Adresa:			{{controller.address}}</p>
+        				</md-card-content>
+      				</md-card>
+      				<md-card>
+       					<md-card-title layout-padding style="background-color: #006064; padding: 0">
+          					<md-card-title-text style="color: white">
+            					<span class="md-headline">Podaci o stručnoj spremi</span>
+          					</md-card-title-text>
+        				</md-card-title>
+        				<md-card-content>
+        					<p></p>
+          					<p>Stručna sprema:	{{controller.qualifications}}</p>
+          					<p>Zvanje:			{{controller.vocation}}</p>
+          					<p>Fakultet:		{{controller.university}}</p>
+        				</md-card-content>
+      				</md-card>
+      			</div>
+ 				<div flex-xs flex-gt-xs="50" layout="column">
+      				<md-card>
+						<md-card-title layout-padding style="background-color: #006064; padding: 0">
+          					<md-card-title-text style="color: white">
+            					<span class="md-headline">Podaci iz ugovora o radu</span>
+          					</md-card-title-text>
+        				</md-card-title>
+        				<md-card-content>
+          					<p></p>
+          					<p>Odjel:				{{controller.department}}</p>
+          					<p>Radno mjesto:		{{controller.workingPlace}}</p>
+          					<p>Datum početka rada:	{{controller.employmentDate  | date:'dd.MM.yyyy.'}}</p>
+          					<p>Trajanje ugovora:	{{controller.contract}}</p>
+        				</md-card-content>
+      				</md-card>
+      				<md-card>
+						<md-card-title layout-padding style="background-color: #006064; padding: 0">
+          					<md-card-title-text style="color: white">
+            					<span class="md-headline">Korisnički podaci</span>
+          					</md-card-title-text>
+        				</md-card-title>
+        				<md-card-content>
+          					<p></p>
+          					<p>Korisničko ime:	{{controller.username}}</p>
+          					<p>E-mail:			{{controller.email}}</p>
+          					<p>Mobitel:			{{controller.phoneNumber}}</p>
+        				</md-card-content>
+      				</md-card>
+				</div>
+       		</md-content>
         </md-tab>
-        <md-tab label="two">
-            <md-content class="md-padding">
+        <md-tab label="Korištenje godišnjeg odmora">
+			<md-content class="md-padding">
                 <h1 class="md-display-2">Tab Two</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-                <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
                 <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
             </md-content>
         </md-tab>
-        <md-tab label="three">
+        <md-tab label="Položeni certifikati">
             <md-content class="md-padding">
                 <h1 class="md-display-2">Tab Three</h1>
                 <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
