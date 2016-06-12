@@ -6,7 +6,8 @@ angular.module('newEvidence', []).controller('newEvidence', function($http, $sco
 		username : undefined,
 		type : undefined,
 		location : undefined,
-		project : undefined
+		project : undefined,
+		uniqueId : undefined
 	};
 
 	$scope.getDatetime = new Date();
@@ -40,6 +41,7 @@ angular.module('newEvidence', []).controller('newEvidence', function($http, $sco
 				$scope.evidence.type = 'Odjava';
 				$scope.evidence.location = response.data.location;
 				$scope.evidence.project = response.data.project;
+				$scope.evidence.uniqueId = response.data.uniqueId;
 			} else {
 				$scope.evidence.type = 'Prijava';
 			}

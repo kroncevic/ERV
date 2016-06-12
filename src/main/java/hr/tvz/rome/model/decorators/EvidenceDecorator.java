@@ -3,6 +3,7 @@ package hr.tvz.rome.model.decorators;
 import hr.tvz.rome.model.EvidenceNew;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by marko on 6/7/2016.
@@ -17,17 +18,22 @@ public class EvidenceDecorator {
     private String location;
     private String project;
     private String type;
+    private String signInTimestamp;
+    private String signOutTimestamp;
+    private String uniqueId;
 
-    public EvidenceDecorator(EvidenceNew evidenceNew) {
-        if (evidenceNew != null) {
-            this.username = evidenceNew.getEmployee().getUsername();
-            this.name = String.format("%s %s", evidenceNew.getEmployee().getLastName(), evidenceNew.getEmployee().getFirstName());
-            this.timestamp = new SimpleDateFormat(dateFormat).format(evidenceNew.getTimestamp());
-            this.location = evidenceNew.getLocation().getName();
-            this.project = evidenceNew.getProject().getName();
-            if (evidenceNew.getType() != null) {
-                this.type = evidenceNew.getType().getName();
+    public EvidenceDecorator(EvidenceNew signIn) {
+        if (signIn != null) {
+            this.username = signIn.getEmployee().getUsername();
+            this.name = String.format("%s %s", signIn.getEmployee().getLastName(), signIn.getEmployee().getFirstName());
+            this.location = signIn.getLocation().getName();
+            this.project = signIn.getProject().getName();
+            if (signIn.getType() != null) {
+                this.type = signIn.getType().getName();
             }
+            this.signInTimestamp = new SimpleDateFormat(dateFormat).format(signIn.getTimestamp());
+            this.signOutTimestamp = "-";
+            this.uniqueId = signIn.getUniqueId();
         }
     }
 
@@ -77,5 +83,29 @@ public class EvidenceDecorator {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getUniqueId() {
+        return uniqueId;
+    }
+
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
+    }
+
+    public String getSignInTimestamp() {
+        return signInTimestamp;
+    }
+
+    public void setSignInTimestamp(String signInTimestamp) {
+        this.signInTimestamp = signInTimestamp;
+    }
+
+    public String getSignOutTimestamp() {
+        return signOutTimestamp;
+    }
+
+    public void setSignOutTimestamp(Date signOutTimestamp) {
+        this.signOutTimestamp = new SimpleDateFormat(dateFormat).format(signOutTimestamp);
     }
 }

@@ -1,7 +1,7 @@
-/*C21*/SET SCHEMA PUBLIC
-INSERT INTO PROJECT VALUES(4,'123',NULL,NULL,NULL,NULL)
+/*C11*/SET SCHEMA PUBLIC
+DELETE FROM EMPLOYEE WHERE ID=142
+INSERT INTO EMPLOYEE VALUES(142,'Selska 6','ADMIN','1971-08-28','hrvatsko','Zagreb','neodre\u0111eno','Hrvatska','Aplikativni odjel','itomic@adriait.hr','2011-02-01','Igor','Tomi\u0107','$2a$10$/VgGAUZQdpRwcApe5drEguHK/ylDGr722oNNixZqr/9uC81J0MsD.','0958874482','VSS','FER','itomic','in\u017eenjer ra\u010dunarstva','direktor')
 COMMIT
-INSERT INTO LOCATION VALUES(4,'xyz',NULL,NULL,NULL,NULL)
-COMMIT
-INSERT INTO EVIDENCE_NEW VALUES(6,NULL,NULL,NULL,NULL,'2016-06-10 23:50:38.294000',NULL,NULL,102,4,4,NULL,5)
+DELETE FROM EMPLOYEE WHERE ID=142
+INSERT INTO EMPLOYEE VALUES(142,'Selska 6','ADMIN','1971-08-28','hrvatsko','Zagreb','neodre\u0111eno','Hrvatska','Aplikativni odjel','itomic@adriait.hr','2011-02-01','Igor','Tomi\u0107','$2a$10$nVkEsodjxtll9/YZZ.T8aeBaYRSiNl.M2vB.FzAj9mlTdTGgMdaqS','0958874482','VSS','FER','itomic','in\u017eenjer ra\u010dunarstva','direktor')
 COMMIT

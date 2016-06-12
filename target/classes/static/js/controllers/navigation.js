@@ -1,90 +1,137 @@
 angular.module('navigation', ['ngRoute', 'auth'])
-	.controller(
-		'navigation', ['$scope', '$route', 'auth', '$timeout', '$mdSidenav', '$location',
+    .controller(
+    'navigation', ['$scope', '$route', 'auth', '$timeout', '$mdSidenav', '$location', '$mdDialog',
 
-		function($scope, $route, auth, $timeout, $mdSidenav, $location) {
+        function ($scope, $route, auth, $timeout, $mdSidenav, $location, $mdDialog) {
 
-			var self = this;
+            var self = this;
 
-			var errorMsg = null;
+            var errorMsg = null;
 
-			$scope.sharedData = {};
-			$scope.sharedData.title = null;
-			$scope.sharedData.authority = null;
+            var originatorEv;
 
-			self.credentials = {};
+            self.openMenu = function ($mdOpenMenu, ev) {
+                originatorEv = ev;
+                $mdOpenMenu(ev);
+            };
 
-			self.authenticated = function() {
-				return auth.authenticated;
-			};
+            $scope.sharedData = {};
+            $scope.sharedData.title = null;
+            $scope.sharedData.authority = null;
 
-			$scope.toggleLeft = buildDelayedToggler('left');
+            self.credentials = {};
 
-			self.navHome = function navHome(){
-				$location.path('/home');
-			};
+            self.authenticated = function () {
+                return auth.authenticated;
+            };
 
-			self.navAdmin = function navAdmin(){
-				$location.path('/admin');
-			};
+            $scope.toggleLeft = buildDelayedToggler('left');
 
-			self.navProfile = function navProfile(){
-				$location.path('/profile');
-			};
+            self.navHome = function navHome() {
+                $location.path('/home');
+            };
 
-			self.navEmployees = function navEmployees(){
-				$location.path('/employees');
-			};
+            self.navAdmin = function navAdmin() {
+                $location.path('/admin');
+            };
 
-			self.navEvidence = function navEvidence(){
-				$location.path('/evidence');
-			};
+            self.navProfile = function navProfile() {
+                $location.path('/profile');
+            };
 
-			self.navMyEvidence = function navMyEvidence(){
-				$location.path('/myEvidence');
-			};
+            self.navEmployees = function navEmployees() {
+                $location.path('/employees');
+            };
 
-			function buildDelayedToggler(navID) {
-				return debounce(function () {
-					$mdSidenav(navID)
-						.toggle();
-				}, 200);
-			}
+            self.navEvidence = function navEvidence() {
+                $location.path('/evidence');
+            };
 
-			function debounce(func, wait, context) {
-				var timer;
+            self.navMyEvidence = function navMyEvidence() {
+                $location.path('/myEvidence');
+            };
 
-				return function debounced() {
-					var context = $scope,
-						args = Array.prototype.slice.call(arguments);
-					$timeout.cancel(timer);
-					timer = $timeout(function () {
-						timer = undefined;
-						func.apply(context, args);
-					}, wait || 10);
-				};
-			}
+            function buildDelayedToggler(navID) {
+                return debounce(function () {
+                    $mdSidenav(navID)
+                        .toggle();
+                }, 200);
+            }
 
-			$scope.close = function () {
-				$mdSidenav('left').close();
-			};
+            function debounce(func, wait, context) {
+                var timer;
 
-			self.login = function() {
+                return function debounced() {
+                    var context = $scope,
+                        args = Array.prototype.slice.call(arguments);
+                    $timeout.cancel(timer);
+                    timer = $timeout(function () {
+                        timer = undefined;
+                        func.apply(context, args);
+                    }, wait || 10);
+                };
+            }
 
-				auth.authenticate(self.credentials, function(authenticated) {
-					if (authenticated) {
-						console.log("Login succeeded");
-						self.error = false;
-						errorMsg = null;
-					} else {
-						console.log("Login failed");
-						self.error = true;
-						self.errorMsg = 'Prijava neuspješna!';
-					}
-				});
+            $scope.close = function () {
+                $mdSidenav('left').close();
+            };
 
-			};
+            self.login = function () {
 
-			self.logout = auth.clear;
+                auth.authenticate(self.credentials, function (authenticated) {
+                    if (authenticated) {
+                        console.log("Login succeeded");
+                        self.error = false;
+                        errorMsg = null;
+                    } else {
+                        console.log("Login failed");
+                        self.error = true;
+                        self.errorMsg = 'Prijava neuspješna!';
+                    }
+                });
 
-		}]);
+            };
+
+            self.logout = auth.clear;
+
+            self.changePassword = function () {
+
+                $mdDialog.show({
+                    controller: ChangePasswordController,
+                    templateUrl: 'partials/dialogs/changePassword.html',
+                    parent: angular.element(document.body),
+                    clickOutsideToClose: false
+                }).then(function () {
+                    $location.path('/home');
+                })
+            };
+
+        }]);
+
+function ChangePasswordController($scope, $mdDialog, $http) {
+
+
+    $scope.changePasswordRequest = {
+        oldPassword : undefined,
+        newPassword : undefined,
+        newPasswordConfirm : undefined
+    };
+
+    $scope.changePasswordErrorMsg = null;
+
+    $scope.hideDialog = function () {
+        $mdDialog.hide();
+    };
+
+    $scope.changePassword = function () {
+
+        $http.post('/rest/evidence/password', $scope.changePasswordRequest).success(function (data) {
+            $mdDialog.hide();
+        })
+            .error(function (data, status) {
+                $scope.changePasswordErrorMsg = 'Failed to change password.';
+            });
+
+    };
+}
+

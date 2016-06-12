@@ -32,6 +32,8 @@ public class EvidenceNew {
     private Project project;
 	@ManyToOne(cascade=CascadeType.MERGE)
 	private Location location;
+
+	private String uniqueId;
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
@@ -45,12 +47,13 @@ public class EvidenceNew {
 	public EvidenceNew() {
 	}
 
-	public EvidenceNew(Employee employee, Project project, Location location, Date timestamp, EvidenceType type) {
+	public EvidenceNew(Employee employee, Project project, Location location, Date timestamp, EvidenceType type, String uniqueId) {
 		this.employee = employee;
 		this.project = project;
 		this.location = location;
 		this.timestamp = timestamp;
 		this.type = type;
+		this.uniqueId = uniqueId;
 	}
 
 	public long getId() {
@@ -153,4 +156,7 @@ public class EvidenceNew {
 		this.location = location;
 	}
 
+	public String getUniqueId() {
+		return uniqueId;
+	}
 }

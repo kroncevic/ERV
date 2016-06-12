@@ -2,6 +2,7 @@ package hr.tvz.rome;
 
 import hr.tvz.rome.model.DatePresentation;
 import hr.tvz.rome.model.Employee;
+import hr.tvz.rome.model.EvidenceNew;
 import hr.tvz.rome.model.EvidenceType;
 import hr.tvz.rome.repository.EmployeesRepository;
 import hr.tvz.rome.repository.EvidenceRepository;

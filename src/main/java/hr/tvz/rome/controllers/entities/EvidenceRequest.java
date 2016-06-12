@@ -9,15 +9,25 @@ public class EvidenceRequest {
     private String type;
     private String location;
     private String project;
+    private String uniqueId;
 
     public EvidenceRequest() {
     }
 
-    public EvidenceRequest(String username, String type, String location, String project) {
+    public EvidenceRequest(String username, String type, String location, String project, String uniqueId) {
         this.username = username;
         this.type = type;
         this.location = location;
         this.project = project;
+        this.uniqueId = uniqueId;
+    }
+
+    public String getUniqueId() {
+        return uniqueId;
+    }
+
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
     }
 
     public String getUsername() {

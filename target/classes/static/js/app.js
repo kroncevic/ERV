@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'ngMessages', 'auth', 'home', 'navigation', 'admin', 'profile', 'ngCookies', 'employees', 'newEvidence', 'myEvidences']).config(function ($routeProvider) {
+angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'ngMessages', 'auth', 'home', 'navigation', 'admin', 'profile', 'ngCookies', 'employees', 'newEvidence', 'myEvidences', 'ngMessages']).config(function ($routeProvider) {
 
     $routeProvider.when('/', {
         templateUrl: '/partials/home.html',

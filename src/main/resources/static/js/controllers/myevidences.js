@@ -3,7 +3,7 @@ angular.module('myEvidences', []).controller('myEvidences', function($http, $sco
 	$scope.sharedData.title = 'Moje evidencije';
 
 	$scope.query = {
-		order: '-timestamp'
+		order: '-signInTimestamp'
 	};
 
 	$scope.logOrder = function (order) {
@@ -12,7 +12,9 @@ angular.module('myEvidences', []).controller('myEvidences', function($http, $sco
 
 	$scope.promise = $http.get('/rest/evidence/' + $rootScope.username).success(function (data) {
 		for (i = 0; i < data.length; i++) {
-			data[i].timestamp = new Date(data[i].timestamp);
+			if (data[i].timestamp != '-') {
+				data[i].timestamp = new Date(data[i].timestamp);
+			}
 		}
 		$scope.evidences = data;
 	});

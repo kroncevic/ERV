@@ -10,8 +10,12 @@
                         <span>Ime</span>
                     </th>
 
+                    <th md-column md-order-by="signInTimestamp">
+                        <span>Prijava</span>
+                    </th>
+
                     <th md-column>
-                        <span>Tip evidencije</span>
+                        <span>Odjava</span>
                     </th>
 
                     <th md-column>
@@ -22,9 +26,7 @@
                         <span>Projekt</span>
                     </th>
 
-                    <th md-column md-order-by="timestamp">
-                        <span>Vrijeme</span>
-                    </th>
+
 
                 </tr>
                 </thead>
@@ -32,10 +34,10 @@
                 <tr md-row
                     ng-repeat="evidence in evidences | orderBy: query.order">
                     <td md-cell>{{evidence.name}}</td>
-                    <td md-cell>{{evidence.type}}</td>
+                    <td md-cell>{{evidence.signInTimestamp | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+                    <td md-cell>{{evidence.signOutTimestamp | date:'dd.MM.yyyy HH:mm:ss'}}</td>
                     <td md-cell>{{evidence.location}}</td>
                     <td md-cell>{{evidence.project}}</td>
-                    <td md-cell>{{evidence.timestamp | date:'dd.MM.yyyy HH:mm:ss'}}</td>
                 </tr>
                 </tbody>
             </table>

@@ -114,14 +114,37 @@
                 Toggle left
             </md-button>
             <div class="md-title" style="color: white">{{sharedData.title}}</div>
+
             <div flex>
             </div>
-            <md-button ng-click="nav.logout()" class="md-raised">
-                <i class="material-icons" style="color: #00BCD4; vertical-align: middle; text-transform: none;  -ms-transform: rotate(180deg); /* IE 9 */
+
+            <md-menu>
+
+                <md-button aria-label="Upravljanje računom" class="md-raised" ng-click="nav.openMenu($mdOpenMenu, $event)">
+                    <i class="material-icons" style="color: #00BCD4; vertical-align: middle; text-transform: none;">account_balance</i>
+                    <span style="color: #00BCD4; vertical-align: middle">Račun</span>
+                </md-button>
+
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="nav.logout()" class="md-raised">
+                            <i class="material-icons" style="color: #00BCD4; vertical-align: middle; text-transform: none;  -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
     transform: rotate(180deg);">exit_to_app</i>
-                <span style="color: #00BCD4; vertical-align: middle">Odjava</span>
-            </md-button>
+                            <span style="color: #00BCD4; vertical-align: middle">Odjava</span>
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button ng-click="nav.changePassword()">
+                            <i class="material-icons" style="color: #00BCD4; vertical-align: middle; text-transform: none; ">lock</i>
+                            <span style="color: #00BCD4; vertical-align: middle">Promjena zaporke</span>
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+
+
 
         </md-toolbar>
 
