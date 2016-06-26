@@ -6,7 +6,7 @@ angular.module('profile', []).controller('profile', function($http, $scope, $roo
 	
 	$http.get('rest/user/').then(function(response) {
 		
-		self.user = response.data.name;
+		self.user = response.data.username;
 		self.authorization = response.data.authorities[0].authority;
 		
 		$http.get('rest/employee/'+ $rootScope.username).then(function(response) {

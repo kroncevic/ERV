@@ -4,7 +4,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.Type;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import hr.tvz.rome.model.serialization.JsonDateDeserializer;
 
 /**
  * Created by Marko on 22.5.2016..
@@ -240,6 +241,7 @@ public class Employee {
 		return birthDate;
 	}
 
+	@JsonDeserialize(using = JsonDateDeserializer.class)
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
@@ -248,6 +250,7 @@ public class Employee {
 		return employmentDate;
 	}
 
+	@JsonDeserialize(using = JsonDateDeserializer.class)
 	public void setEmploymentDate(Date employmentDate) {
 		this.employmentDate = employmentDate;
 	}

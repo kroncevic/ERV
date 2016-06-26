@@ -3,6 +3,7 @@ package hr.tvz.rome.service.employee;
 import hr.tvz.rome.controllers.entities.ChangePasswordRequest;
 import hr.tvz.rome.model.Employee;
 import hr.tvz.rome.repository.EmployeesRepository;
+import hr.tvz.rome.utilities.DateTimeBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
@@ -52,5 +53,16 @@ public class EmployeeServiceImpl implements EmployeeService {
         } else{
             throw new BadCredentialsException("Credentials don't match.");
         }
+    }
+
+    @Override
+    public Employee create(Employee employee) {
+        if(employee.getPassword() == null || employee.getPassword().isEmpty()){
+            employee.setPassword(passwordEncoder.encode("password"));
+        }
+        if(employee.getAuthorization() == null || employee.getAuthorization().isEmpty()){
+            employee.setAuthorization("USER");
+        }
+        return employeesRepository.saveAndFlush(employee);
     }
 }

@@ -1,48 +1,251 @@
-<md-card>
+<div layout="row" layout-wrap>
 
-    <md-card-content>
-        <md-table-container>
-            <table md-table md-progress="promise">
-                <thead md-head md-order="query.order" md-on-reorder="logOrder">
-                <tr md-row>
+    <md-card flex="30" style="height: 0%">
 
-                    <th md-column md-order-by="name">
-                        <span>Ime</span>
-                    </th>
+        <md-card-header style="background-color: #006064;">
+            <md-card-header-text>
+                <div layout="row">
+                    <div layout="row" layout-align="start center">
+                        <span class="md-title" style="color: white;">Projekti</span>
+                    </div>
+                    <div flex></div>
+                    <md-button ng-show="!showProject()"
+                               class="md-raised md-fab md-mini" ng-click="newProject = true">
 
-                    <th md-column md-order-by="signInTimestamp">
-                        <span>Prijava</span>
-                    </th>
+                        <i class="material-icons md-fab"
+                           style="color: #006064; vertical-align: middle; text-transform: none">add</i>
+                        <md-tooltip md-direction="bottom">
+                            Novi projekt
+                        </md-tooltip>
+                    </md-button>
 
-                    <th md-column>
-                        <span>Odjava</span>
-                    </th>
+                    <md-button ng-show="showProject()"
+                               class="md-raised md-fab md-mini" ng-click="clearProject()">
 
-                    <th md-column>
-                        <span>Lokacija</span>
-                    </th>
+                        <i class="material-icons md-fab"
+                           style="color: #006064; vertical-align: middle; text-transform: none">close</i>
+                        <md-tooltip md-direction="bottom">
+                            Zatvori projekt
+                        </md-tooltip>
+                    </md-button>
+                </div>
+            </md-card-header-text>
+        </md-card-header>
 
-                    <th md-column>
-                        <span>Projekt</span>
-                    </th>
-
-
-
-                </tr>
-                </thead>
-                <tbody md-body>
-                <tr md-row
-                    ng-repeat="evidence in evidences | orderBy: query.order">
-                    <td md-cell>{{evidence.name}}</td>
-                    <td md-cell>{{evidence.signInTimestamp | date:'dd.MM.yyyy HH:mm:ss'}}</td>
-                    <td md-cell>{{evidence.signOutTimestamp | date:'dd.MM.yyyy HH:mm:ss'}}</td>
-                    <td md-cell>{{evidence.location}}</td>
-                    <td md-cell>{{evidence.project}}</td>
-                </tr>
-                </tbody>
-            </table>
-        </md-table-container>
-    </md-card-content>
+        <md-card-content>
 
 
-</md-card>
+            <div layout="row" ng-show="!newProject">
+
+                <md-input-container style="width: 100%">
+                    <label>Projekt</label>
+                    <md-select ng-model="selectedProject">
+
+                        <md-option value=""></md-option>
+
+                        <md-option ng-value="project" ng-repeat="project in projects">{{project.name}}</md-option>
+
+                    </md-select>
+                </md-input-container>
+
+            </div>
+
+
+            <md-content ng-show="showProject()">
+                <md-divider style="margin-top: 20px; margin-bottom: 30px" ng-show="!newProject"></md-divider>
+                <h3 ng-show="newProject">Novi projekt</h3>
+                <span style="color: #F44336">{{projectResultMessage}}</span>
+
+                <form name="projectForm">
+                    <md-input-container class="md-block">
+                        <label>Ime projekta</label>
+                        <input required name="name" ng-model="selectedProject.name">
+
+                        <div ng-messages="projectForm.name.$error">
+                            <div ng-message="required">Ime projekta je potrebno</div>
+                        </div>
+                    </md-input-container>
+                </form>
+
+                <div layout="row" layout-align="end" flex>
+
+                    <md-button class="md-primary md-raised" ng-show="!newProject"
+                               ng-click="deleteProject(selectedProject)">
+                        <i class="material-icons" style="vertical-align: middle; text-transform: none; color: white">delete</i>
+                        <span style="color: white; vertical-align: middle;">Obriši</span>
+                    </md-button>
+
+
+                    <md-button class="md-primary md-raised" ng-disabled="projectForm.$invalid"
+                               ng-click="saveProject(selectedProject)">
+                        <i class="material-icons" style="vertical-align: middle; text-transform: none; color: white">save</i>
+                        <span style="color: white; vertical-align: middle;">Spremi</span>
+                    </md-button>
+                </div>
+
+            </md-content>
+
+
+        </md-card-content>
+
+
+    </md-card>
+
+
+
+
+
+
+
+    <md-card flex="30" style="height: 0%">
+
+
+        <md-card-header style="background-color: #006064;">
+            <md-card-header-text>
+                <div layout="row">
+                    <div layout="row" layout-align="start center">
+                        <span class="md-title" style="color: white;">Zaposlenici</span>
+                    </div>
+                    <div flex></div>
+                    <md-button ng-show="!showEmployee()"
+                               class="md-raised md-fab md-mini" ng-click="newEmployee = true">
+
+                        <i class="material-icons md-fab"
+                           style="color: #006064; vertical-align: middle; text-transform: none">add</i>
+                        <md-tooltip md-direction="bottom">
+                            Novi zaposlenik
+                        </md-tooltip>
+                    </md-button>
+
+                    <md-button ng-show="showEmployee()"
+                               class="md-raised md-fab md-mini" ng-click="clearEmployee()">
+
+                        <i class="material-icons md-fab"
+                           style="color: #006064; vertical-align: middle; text-transform: none">close</i>
+                        <md-tooltip md-direction="bottom">
+                            Zatvori
+                        </md-tooltip>
+                    </md-button>
+                </div>
+            </md-card-header-text>
+        </md-card-header>
+
+        <md-card-content>
+
+
+            <div layout="row" ng-show="!newEmploye">
+
+                <md-input-container style="width: 100%">
+                    <label>Zaposlenik</label>
+                    <md-select ng-model="selectedEmployee" md-on-close="setEmployeeDates()">
+
+                        <md-option value=""></md-option>
+
+                        <md-option ng-value="employee" ng-repeat="employee in employees">{{employee.lastName}} {{employee.firstName}}</md-option>
+
+                    </md-select>
+                </md-input-container>
+
+            </div>
+
+
+            <md-content ng-show="showEmployee()" style="max-height: 600px">
+                <md-divider style="margin-top: 20px; margin-bottom: 30px" ng-show="!newEmployee"></md-divider>
+                <h3 ng-show="newEmployee">Novi zaposlenik</h3>
+                <span style="color: #F44336">{{employeeResultMessage}}</span>
+
+                <form name="employeeForm">
+
+                    <md-input-container class="md-block">
+                        <label>Korisničko ime</label>
+                        <input required name="username" ng-model="selectedEmployee.username">
+
+                        <div ng-messages="employeeForm.username.$error">
+                            <div ng-message="required">Korisničko ime zaposlenika je potrebno</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Ovlaštenje</label>
+                        <input name="authorization" ng-model="selectedEmployee.authorization">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Ime</label>
+                        <input required name="firstName" ng-model="selectedEmployee.firstName">
+
+                        <div ng-messages="employeeForm.firstName.$error">
+                            <div ng-message="required">Ime zaposlenika je potrebno</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Prezime</label>
+                        <input required name="lastName" ng-model="selectedEmployee.lastName">
+
+                        <div ng-messages="employeeForm.lastName.$error">
+                            <div ng-message="required">Prezime zaposlenika je potrebno</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Državljanstvo</label>
+                        <input name="citizenship" ng-model="selectedEmployee.citizenship">
+                    </md-input-container>
+
+                    <div layout="column" flex>
+                        <label class="md-caption">Datum rođenja</label>
+                        <md-datepicker ng-model="tempBirthDate" md-placeholder="Datum rođenja"></md-datepicker>
+                    </div>
+
+                    <md-input-container class="md-block">
+                        <label>Država</label>
+                        <input name="country" ng-model="selectedEmployee.country">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Grad</label>
+                        <input name="city" ng-model="selectedEmployee.city">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Adresa</label>
+                        <input name="address" ng-model="selectedEmployee.address">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Odjel</label>
+                        <input name="department" ng-model="selectedEmployee.department">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Radno mjesto</label>
+                        <input name="workingPlace" ng-model="selectedEmployee.workingPlace">
+                    </md-input-container>
+
+                    <div layout="column" flex>
+                        <label class="md-caption">Datum zapošljenja</label>
+                        <md-datepicker ng-model="tempEmploymentDate" md-placeholder="Datum zapošljenja"></md-datepicker>
+                    </div>
+
+                </form>
+
+                <div layout="row" layout-align="end" flex>
+
+                    <md-button class="md-primary md-raised" ng-disabled="employeeForm.$invalid"
+                               ng-click="saveEmployee(selectedEmployee)">
+                        <i class="material-icons" style="vertical-align: middle; text-transform: none; color: white">save</i>
+                        <span style="color: white; vertical-align: middle;">Spremi</span>
+                    </md-button>
+                </div>
+
+            </md-content>
+
+
+        </md-card-content>
+
+
+    </md-card>
+
+
+</div>

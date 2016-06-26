@@ -32,7 +32,7 @@ angular.module('newEvidence', []).controller('newEvidence', function($http, $sco
 	$scope.isSignedin = undefined;
 
 	$http.get('rest/employee/'+ $rootScope.username).then(function(response) {
-		self.name = response.data.firstName + ' ' + response.data.lastName;
+		self.username = response.data.firstName + ' ' + response.data.lastName;
 		$scope.evidence.username = response.data.username;
 		$http.get('rest/evidence/latest/'+ $rootScope.username).then(function(response) {
 			$scope.evidence.type = response.data.type;

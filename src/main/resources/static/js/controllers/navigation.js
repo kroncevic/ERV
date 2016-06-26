@@ -125,7 +125,7 @@ function ChangePasswordController($scope, $mdDialog, $http) {
 
     $scope.changePassword = function () {
 
-        $http.post('/rest/evidence/password', $scope.changePasswordRequest).success(function (data) {
+        $http.post('/rest/employee/password', $scope.changePasswordRequest).success(function (data) {
             $mdDialog.hide();
         })
             .error(function (data, status) {

@@ -13,5 +13,6 @@ public interface EmployeeService {
     List<Employee> findAll();
     Employee findByUsername(String username);
     void changePassword(ChangePasswordRequest request);
+    Employee create(Employee employee);
 
 }

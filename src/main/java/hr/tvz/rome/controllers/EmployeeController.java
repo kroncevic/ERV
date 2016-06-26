@@ -2,6 +2,7 @@ package hr.tvz.rome.controllers;
 
 import hr.tvz.rome.controllers.entities.ChangePasswordRequest;
 import hr.tvz.rome.model.Employee;
+import hr.tvz.rome.model.Project;
 import hr.tvz.rome.service.employee.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,14 +34,19 @@ public class EmployeeController {
         return employeeService.findByUsername(username);
     }
 
-    @RequestMapping(value = "/evidence/password", method = RequestMethod.POST)
-    public ResponseEntity<Void> create(@RequestBody ChangePasswordRequest request) {
+    @RequestMapping(value = "/employee/password", method = RequestMethod.POST)
+    public ResponseEntity<Void> changePassword(@RequestBody ChangePasswordRequest request) {
         try {
             employeeService.changePassword(request);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (BadCredentialsException exception) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
+    }
+
+    @RequestMapping(value = "/employee", method = RequestMethod.POST)
+    public ResponseEntity<Employee> createEmployee(@RequestBody Employee request) {
+        return new ResponseEntity<>(employeeService.create(request), HttpStatus.OK);
     }
 
 }
