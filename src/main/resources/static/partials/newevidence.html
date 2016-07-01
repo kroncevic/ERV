@@ -25,33 +25,35 @@
 
         <form name="evidenceForm">
 
-            <md-input-container class="md-block" flex-gt-sm>
+            <md-input-container style="width: 100%">
                 <label>Lokacija</label>
-                <input required name="location" ng-model="evidence.location"  ng-disabled="isSignedin">
+                <md-select ng-model="selectedLocation.name" ng-disabled="isSignedin">
 
-                <div ng-messages="evidenceForm.location.$error">
+                    <md-option value=""></md-option>
 
-                    <div ng-message="required">Unesite lokaciju</div>
+                    <md-option ng-value="location.name" ng-repeat="location in locations">{{location.name}} </md-option>
 
-                </div>
-
+                </md-select>
             </md-input-container>
 
-            <md-input-container class="md-block" flex-gt-sm>
+
+            <md-input-container style="width: 100%">
                 <label>Projekt</label>
-                <input required name="project" ng-model="evidence.project"  ng-disabled="isSignedin">
 
-                <div ng-messages="evidenceForm.project.$error">
+                <md-select ng-model="selectedProject.name" ng-disabled="isSignedin">
 
-                    <div ng-message="required">Unesite ime projekta</div>
+                    <md-option value=""></md-option>
 
-                </div>
+                    <md-option ng-value="project.name" ng-repeat="project in projects">{{project.name}}</md-option>
+
+                </md-select>
+
 
             </md-input-container>
 
             <div layout="row" layout-align="end" flex>
 
-                <md-button ng-disabled="evidenceForm.$invalid || isUnchanged(evidence)"
+                <md-button ng-disabled="disableSaveEvidence()"
                            ng-click="saveEvidence()" class="md-raised md-primary">
 
                     <i class="material-icons"
