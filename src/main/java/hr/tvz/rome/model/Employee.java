@@ -1,6 +1,7 @@
 package hr.tvz.rome.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -51,11 +52,15 @@ public class Employee {
     
     private String citizenship;
     
+    
     @Column(columnDefinition = "date")
     private Date birthDate;
     
     @Column(columnDefinition = "date")
     private Date employmentDate;
+    
+    @OneToMany (mappedBy = "employee", fetch = FetchType.EAGER)
+    private List<Vacation> vacations;
     
     public Employee() {
     }
@@ -71,7 +76,7 @@ public class Employee {
     public Employee(String firstName, String lastName, String username, String password, String authorization,
     	String qualifications, String vocation, String university, String department,
 		String workingPlace, String contract, String email, String phoneNumber, String address,
-		String city, String country, String citizenship, Date birthDate, Date employmentDate) {
+		String city, String country, String citizenship, Date birthDate, Date employmentDate, List<Vacation> vacations) {
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.username = username;
@@ -91,6 +96,9 @@ public class Employee {
 	this.citizenship = citizenship;
 	this.birthDate = birthDate;
 	this.employmentDate = employmentDate;
+	
+	this.vacations = vacations;
+	
 }
 
     public long getId() {
@@ -254,5 +262,15 @@ public class Employee {
 	public void setEmploymentDate(Date employmentDate) {
 		this.employmentDate = employmentDate;
 	}
+
+	public List<Vacation> getVacations() {
+		return vacations;
+	}
+
+	public void setVacations(List<Vacation> vacations) {
+		this.vacations = vacations;
+	}
+
+
     
 }

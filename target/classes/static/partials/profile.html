@@ -62,12 +62,96 @@
 				</div>
        		</md-content>
         </md-tab>
-        <md-tab label="Korištenje godišnjeg odmora">
+        
+        
+         <md-tab label="Korištenje godišnjeg odmora">
 			<md-content class="md-padding">
-                <h1 class="md-display-2">Tab Two</h1>
-                <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-            </md-content>
-        </md-tab>
+	            <div flex-xs flex-gt-xs="50" layout="column">
+	           			<md-card>
+	        				<md-card-title layout-padding style="background-color: #006064; padding: 0">
+	          					<md-card-title-text style="color: white">
+	            					<span class="md-headline">Broj dana godišnjeg odmora</span>
+	          					</md-card-title-text>
+	        				</md-card-title>
+	        				<md-card-content>
+						        <md-table-container>
+						            <table md-table md-progress="promise">
+						                <thead md-head md-order="query.order" >
+							                <tr md-row>		
+							                		
+							                    <th md-column style="text-align: center">
+							                        <span>Broj odobrenih dana</span>
+							                    </th>	
+							                    				
+							                    <th md-column style="text-align: center">
+							                        <span>Broj iskorištenih dana</span>
+							                    </th>	
+							                    				
+							                    <th md-column style="text-align: center">
+							                        <span>Broj preostalih dana</span>
+							                    </th>
+							                    
+							                </tr>
+						                </thead>
+						                
+						                <tbody md-body>
+							                <tr md-row>
+							                    <td md-cell style="text-align: center">{{vacation.vacationDaysAllowed}}</td>
+							                    <td md-cell style="text-align: center">{{vacation.vacationDaysUsedAll}}</td>
+							                    <td md-cell style="text-align: center">{{vacation.vacationDaysLeft}}</td>
+							                </tr>
+						                </tbody>
+						            </table>
+						        </md-table-container>
+						    </md-card-content>
+	      				</md-card>
+	      				
+	      				<md-card>
+	       					<md-card-title layout-padding style="background-color: #006064; padding: 0">
+	          					<md-card-title-text style="color: white">
+	            					<span class="md-headline">Iskorišten godišnji odmor</span>
+	          					</md-card-title-text>
+	        				</md-card-title>
+	        				
+							<md-card-content>
+						        <md-table-container>
+						            <table md-table md-progress="promise">
+						                <thead md-head md-order="query.order" >
+							                <tr md-row>		
+							                		
+							                    <th md-column style="text-align: center">
+							                        <span>Broj dana</span>
+							                    </th>	
+							                    				
+							                    <th md-column style="text-align: center">
+							                        <span>Datum početka</span>
+							                    </th>	
+							                    				
+							                    <th md-column style="text-align: center">
+							                        <span>Datum završetka</span>
+							                    </th>
+							                    
+							                </tr>
+						                </thead>
+						                
+						                <tbody md-body>
+							                <tr md-row
+							                    ng-repeat="vacation in vacations">
+							                    <td md-cell style="text-align: center">{{vacation.vacationDaysUsed}}</td>
+							                    <td md-cell style="text-align: center">{{vacation.vacationStart | date:'dd.MM.yyyy'}}</td>
+							                    <td md-cell style="text-align: center">{{vacation.vacationEnd | date:'dd.MM.yyyy'}}</td>
+							                </tr>
+						                </tbody>
+						            </table>
+						        </md-table-container>
+						    </md-card-content>
+	        				
+	      				</md-card>
+	      		</div>
+			</md-content>
+		</md-tab>
+        
+        
         <md-tab label="Položeni certifikati">
             <md-content class="md-padding">
                 <h1 class="md-display-2">Tab Three</h1>

@@ -24,6 +24,11 @@ angular.module('profile', []).controller('profile', function($http, $scope, $roo
 		self.username = response.data.username;
 		self.email = response.data.email;
 		self.phoneNumber = response.data.phoneNumber;
+		
+		self.vacations = response.data.vacations;
+		
+		
+		
 	});
   });
 });

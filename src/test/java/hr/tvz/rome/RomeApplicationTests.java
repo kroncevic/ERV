@@ -4,6 +4,7 @@ import hr.tvz.rome.model.DatePresentation;
 import hr.tvz.rome.model.Employee;
 import hr.tvz.rome.model.EvidenceNew;
 import hr.tvz.rome.model.EvidenceType;
+import hr.tvz.rome.model.Vacation;
 import hr.tvz.rome.repository.EmployeesRepository;
 import hr.tvz.rome.repository.EvidenceRepository;
 import hr.tvz.rome.repository.EvidenceTypeRepository;
@@ -18,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,6 +42,17 @@ public class RomeApplicationTests {
     EvidenceRepository evidenceRepository;
 
     @Test
+    public void test() {
+    	Employee employee = new Employee();
+    	employee.setVacations(new ArrayList<Vacation>());
+    	employee.getVacations().add(new Vacation());
+    	employee = employeesRepository.save(employee);
+    	Employee employee2 = employeesRepository.findOne(employee.getId());
+    	Assert.assertNotNull(employee2);
+    	Assert.assertNotNull(employee2.getVacations());
+    }
+    
+    @Test
     public void test1() {
         List<Employee> employees = employeesRepository.findAll();
         Assert.assertNotNull(employees);
@@ -48,6 +61,7 @@ public class RomeApplicationTests {
         Assert.assertNotNull(employee);
     }
 
+    /*
     @Test
     public void test2() {
         employeesRepository.deleteAll();
@@ -87,6 +101,8 @@ public class RomeApplicationTests {
         Assert.assertNotNull(employees);
 
     }
+    */
+    
 
     @Test
     public void test3() {
