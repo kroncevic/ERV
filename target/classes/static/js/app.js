@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'ngMessages', 'auth', 'home', 'navigation', 'admin', 'profile', 'ngCookies', 'employees', 'newEvidence', 'myEvidences', 'ngMessages']).
+angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'ngMessages', 'auth', 'home', 'navigation', 'admin', 'profile', 'ngCookies', 'employees', 'newEvidence', 'myEvidences', 'ngMessages', 'ngSanitize', 'ngCsv']).
     config(function ($routeProvider) {
 
         $routeProvider.when('/', {
