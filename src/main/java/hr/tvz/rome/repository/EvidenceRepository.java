@@ -12,5 +12,6 @@ public interface EvidenceRepository extends JpaRepository<EvidenceNew, Long> {
     List<EvidenceNew> findByEmployee(Employee employee);
     List<EvidenceNew> findByTimestampGreaterThanEqual(Date date);
     EvidenceNew findFirstByEmployeeOrderByTimestampDesc(Employee employee);
+    EvidenceNew findFirstByUniqueId(String uuid);
 
 }

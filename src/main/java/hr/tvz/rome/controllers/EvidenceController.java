@@ -2,6 +2,7 @@ package hr.tvz.rome.controllers;
 
 import hr.tvz.rome.controllers.entities.EvidenceRequest;
 import hr.tvz.rome.model.EvidenceNew;
+import hr.tvz.rome.model.Project;
 import hr.tvz.rome.model.decorators.EvidenceDecorator;
 import hr.tvz.rome.service.evidence.EvidenceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,17 @@ public class EvidenceController {
     @RequestMapping(value = "/evidence/latest/{username}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public EvidenceDecorator findLatestUserEvidence(@PathVariable("username") String username) {
         return evidenceService.findLatestUserEvidence(username);
+    }
+
+    @RequestMapping(value = "/evidence/{uuid}", method = RequestMethod.DELETE)
+    public ResponseEntity<EvidenceNew> deleteEvidence(@PathVariable String uuid) {
+        EvidenceNew evidenceNew = evidenceService.findOneByUniqueId(uuid);
+        try{
+            evidenceService.delete(evidenceNew);}
+        catch (Exception e){
+            return new ResponseEntity<>(evidenceNew, HttpStatus.NOT_ACCEPTABLE);
+        }
+        return new ResponseEntity<>(evidenceNew, HttpStatus.OK);
     }
 
 }

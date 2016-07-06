@@ -10,7 +10,7 @@ angular.module('myEvidences', []).controller('myEvidences', function ($http, $sc
         console.log('order: ', order);
     };
 
-    $scope.promise = $http.get('/rest/evidence/' + $rootScope.username).success(function (data) {
+    $scope.promise = $http.get('rest/evidence/' + $rootScope.username).success(function (data) {
         $scope.evidences = data;
     });
 

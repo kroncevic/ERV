@@ -10,7 +10,7 @@ angular.module('home', []).controller('home', function($http, $scope) {
 		console.log('order: ', order);
 	};
 
-	$scope.promise = $http.get('/rest/evidence/today').success(function (data) {
+	$scope.promise = $http.get('rest/evidence/today').success(function (data) {
 		$scope.evidences = data;
 	});
 

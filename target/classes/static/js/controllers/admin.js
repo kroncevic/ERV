@@ -104,17 +104,20 @@ angular.module('admin', []).controller('admin', function ($http, $scope, $q, $ro
         $scope.tempEmploymentDate = new Date($scope.selectedEmployee.employmentDate);
     };
 
+    var pad  = function pad(n, width, z) {
+        z = z || '0';
+        n = n + '';
+        return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+    };
+
     $scope.saveEmployee = function () {
 
         var months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-        var padding = "00";
 
-        var birthDateDay = $scope.tempBirthDate.getDate();
-        var birthDay = padding.substring(0, padding.length - birthDateDay.length) + birthDateDay;
+        var birthDay = pad($scope.tempBirthDate.getDate(), 2);
         $scope.selectedEmployee.birthDate =  $scope.tempBirthDate.getFullYear() + months[$scope.tempBirthDate.getMonth()] + birthDay + '000000';
 
-        var employmentDateDay = $scope.tempEmploymentDate.getDate();
-        var employmentDay = padding.substring(0, padding.length - employmentDateDay.length) + employmentDateDay;
+        var employmentDay = pad($scope.tempEmploymentDate.getDate(), 2);
         $scope.selectedEmployee.employmentDate =  $scope.tempEmploymentDate.getFullYear() + months[$scope.tempEmploymentDate.getMonth()] + employmentDay + '000000';
 
         $http.post('rest/employee', $scope.selectedEmployee)

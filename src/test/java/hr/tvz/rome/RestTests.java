@@ -1,24 +1,25 @@
 package hr.tvz.rome;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hr.tvz.rome.controllers.entities.EvidenceRequest;
 import hr.tvz.rome.model.Employee;
 import hr.tvz.rome.model.decorators.EvidenceDecorator;
 import hr.tvz.rome.repository.EmployeesRepository;
-import hr.tvz.rome.security.JwtAuthenticationFilter;
 import hr.tvz.rome.security.entity.JwtAuthenticationRequest;
 import hr.tvz.rome.security.util.JwtTokenUtil;
 import io.jsonwebtoken.Claims;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.mock.http.MockHttpOutputMessage;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -29,10 +30,13 @@ import org.springframework.web.context.WebApplicationContext;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -67,6 +71,11 @@ public class RestTests {
                 this.mappingJackson2HttpMessageConverter);
     }
 
+    @BeforeClass
+    public static void setupJndi() throws Exception {
+        JndiInit.initializeJndi();
+    }
+
     @Autowired
     JwtTokenUtil jwtTokenUtil;
 
@@ -79,7 +88,7 @@ public class RestTests {
     public void setup() throws Exception {
         this.mockMvc = webAppContextSetup(webApplicationContext).apply(SecurityMockMvcConfigurers.springSecurity()).build();
         JwtAuthenticationRequest request = new JwtAuthenticationRequest();
-        request.setUsername("admin");
+        request.setUsername("itomic");
         request.setPassword("password");
 
         MvcResult loginResult = mockMvc.perform(post("/rest/auth")
@@ -95,11 +104,26 @@ public class RestTests {
     }
 
     @Test
+    public void testUserInfo() throws Exception {
+        MvcResult result = mockMvc.perform(get("/rest/user")
+                .header("Authorization", token))
+                .andExpect(status().isOk()).andReturn();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        Object authentication = mapper.readValue(result.getResponse().getContentAsByteArray(), Object.class);
+
+
+        Assert.assertNotNull(authentication);
+
+    }
+
+    @Test
     public void testLogin() throws Exception {
 
 
         JwtAuthenticationRequest request = new JwtAuthenticationRequest();
-        request.setUsername("admin");
+        request.setUsername("itomic");
         request.setPassword("password");
 
         MvcResult loginResult = mockMvc.perform(post("/rest/auth")
@@ -128,24 +152,76 @@ public class RestTests {
         Assert.assertEquals(authority, employee.getAuthorization());
 
 
-
     }
 
     @Test
-    public void testFindAllEvidence() throws Exception{
+    public void testEvidenceController() throws Exception {
 
         mockMvc.perform(get("/rest/evidence/"))
                 .andExpect(status().isUnauthorized());
 
-        MvcResult result = mockMvc.perform(get("/rest/evidence/")
+        MvcResult resultAll = mockMvc.perform(get("/rest/evidence/")
                 .header("Authorization", token))
                 .andExpect(status().isOk()).andReturn();
 
         ObjectMapper mapper = new ObjectMapper();
 
-        List<EvidenceDecorator> evidenceDecorators = mapper.readValue(result.getResponse().getContentAsByteArray(), List.class);
+        List<EvidenceDecorator> evidenceDecorators = mapper.readValue(resultAll.getResponse().getContentAsByteArray(), List.class);
 
-        org.springframework.util.Assert.notEmpty(evidenceDecorators);
+        Assert.assertNotNull(evidenceDecorators);
+
+        MvcResult resultSingleUser = mockMvc.perform(get("/rest/evidence/itomic")
+                .header("Authorization", token))
+                .andExpect(status().isOk()).andReturn();
+
+        List<EvidenceDecorator> evidenceDecoratorsSingleUser = mapper.readValue(resultSingleUser.getResponse().getContentAsByteArray(), List.class);
+
+        Assert.assertNotNull(evidenceDecoratorsSingleUser);
+
+        MvcResult resultToday = mockMvc.perform(get("/rest/evidence/today")
+                .header("Authorization", token))
+                .andExpect(status().isOk()).andReturn();
+
+        List<EvidenceDecorator> evidenceToday = mapper.readValue(resultToday.getResponse().getContentAsByteArray(), List.class);
+
+        Assert.assertNotNull(evidenceToday);
+
+        MvcResult resultLatest = mockMvc.perform(get("/rest/evidence/latest/itomic")
+                .header("Authorization", token))
+                .andExpect(status().isOk()).andReturn();
+
+        EvidenceDecorator latestEvidence = mapper.readValue(resultLatest.getResponse().getContentAsByteArray(), EvidenceDecorator.class);
+
+        Assert.assertNotNull(latestEvidence);
+
+        EvidenceRequest evidenceRequest = new EvidenceRequest();
+        evidenceRequest.setUsername("itomic");
+        evidenceRequest.setType("Prijava");
+        evidenceRequest.setProject("PrviProjekt");
+        evidenceRequest.setLocation("Zagreb");
+        evidenceRequest.setUniqueId(UUID.randomUUID().toString());
+
+        mockMvc.perform(post("/rest/evidence")
+                .content(json(evidenceRequest))
+                .contentType(contentType)
+                .header("Authorization", token))
+        .andExpect(status().isOk()).andReturn();
+
+        MvcResult resultLatestTest = mockMvc.perform(get("/rest/evidence/latest/itomic")
+                .header("Authorization", token))
+                .andExpect(status().isOk()).andReturn();
+
+        EvidenceDecorator latestEvidenceTest = mapper.readValue(resultLatestTest.getResponse().getContentAsByteArray(), EvidenceDecorator.class);
+
+        Assert.assertNotNull(latestEvidenceTest);
+
+        mockMvc.perform(delete("/rest/evidence/"+latestEvidenceTest.getUniqueId())
+                .header("Authorization", token))
+                .andExpect(status().isOk()).andReturn();
+
+
+
+
     }
 
 

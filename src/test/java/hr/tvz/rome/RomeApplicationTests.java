@@ -10,17 +10,21 @@ import hr.tvz.rome.repository.EvidenceTypeRepository;
 import hr.tvz.rome.repository.VacationRepository;
 import hr.tvz.rome.service.DatePresentationService;
 import hr.tvz.rome.utilities.DateTimeBuilder;
-import org.joda.time.DateTime;
-import org.joda.time.Days;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import javax.sql.DataSource;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +33,12 @@ import java.util.List;
 @SpringApplicationConfiguration(classes = RomeApplication.class)
 @WebAppConfiguration
 public class RomeApplicationTests {
+
+    @Bean
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource datasource() {
+        return DataSourceBuilder.create().build();
+    }
 
     @Autowired
     EmployeesRepository employeesRepository;
@@ -45,6 +55,11 @@ public class RomeApplicationTests {
 
     @Autowired
     VacationRepository vacationRepository;
+
+    @BeforeClass
+    public static void setupJndi() throws Exception {
+        JndiInit.initializeJndi();
+    }
 
     @Test
     public void test() {
@@ -134,11 +149,6 @@ public class RomeApplicationTests {
     public void test4() {
         DatePresentation datePresentation = datePresentationService.getDatePresentation(LocalDate.now());
         Assert.assertNotNull(datePresentation);
-    }
-
-    @Test
-    public void test5() {
-        evidenceRepository.deleteAll();
     }
 
 }

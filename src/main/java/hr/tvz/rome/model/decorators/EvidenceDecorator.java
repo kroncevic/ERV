@@ -22,6 +22,9 @@ public class EvidenceDecorator {
     private String signOutTimestamp;
     private String uniqueId;
 
+    public EvidenceDecorator() {
+    }
+
     public EvidenceDecorator(EvidenceNew signIn) {
         if (signIn != null) {
             this.username = signIn.getEmployee().getUsername();
@@ -105,7 +108,11 @@ public class EvidenceDecorator {
         return signOutTimestamp;
     }
 
-    public void setSignOutTimestamp(Date signOutTimestamp) {
+    public void setSignOutTimestamp(String signOutTimestamp) {
+        this.signOutTimestamp = signOutTimestamp;
+    }
+
+    public void setSignOutTimestampFromDate(Date signOutTimestamp) {
         this.signOutTimestamp = new SimpleDateFormat(dateFormat).format(signOutTimestamp);
     }
 }

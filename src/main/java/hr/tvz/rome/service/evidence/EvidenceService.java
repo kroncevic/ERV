@@ -17,8 +17,16 @@ public interface EvidenceService {
 
     List<EvidenceDecorator> findByUsername(String username);
 
+    EvidenceDecorator findByUniqueId(String uuid);
+
     List<EvidenceDecorator> findToday();
 
     EvidenceDecorator findLatestUserEvidence(String username);
+
+    EvidenceNew findOne(Long id);
+
+    EvidenceNew findOneByUniqueId(String uuid);
+
+    void delete(EvidenceNew evidenceNew);
 
 }

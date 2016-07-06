@@ -81,6 +81,11 @@ public class EvidenceServiceImpl implements EvidenceService {
     }
 
     @Override
+    public EvidenceDecorator findByUniqueId(String uuid) {
+        return new EvidenceDecorator(evidenceRepository.findFirstByUniqueId(uuid));
+    }
+
+    @Override
     public List<EvidenceDecorator> findToday() {
         return createFromDatabaseList(evidenceRepository.findByTimestampGreaterThanEqual(DateTimeBuilder.fromDateTime(DateTimeBuilder.now().buildDateTime().getStartOfDay()).buildDate()));
 
@@ -104,11 +109,27 @@ public class EvidenceServiceImpl implements EvidenceService {
             if(evidence.getType().getName().equals(prijava)){
                 evidenceMap.put(evidence.getUniqueId(), new EvidenceDecorator(evidence));
             } else if(evidenceMap.containsKey(evidence.getUniqueId())){
-                evidenceMap.get(evidence.getUniqueId()).setSignOutTimestamp(evidence.getTimestamp());
+                evidenceMap.get(evidence.getUniqueId()).setSignOutTimestampFromDate(evidence.getTimestamp());
             }
         });
 
 
         return new ArrayList<>(evidenceMap.values());
     }
+
+    @Override
+    public EvidenceNew findOne(Long id) {
+        return evidenceRepository.findOne(id);
+    }
+
+    @Override
+    public EvidenceNew findOneByUniqueId(String uuid) {
+        return evidenceRepository.findFirstByUniqueId(uuid);
+    }
+
+    @Override
+    public void delete(EvidenceNew evidenceNew) {
+        evidenceRepository.delete(evidenceNew);
+    }
+
 }

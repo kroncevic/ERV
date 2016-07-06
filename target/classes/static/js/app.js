@@ -2,19 +2,19 @@ angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'n
     config(function ($routeProvider) {
 
         $routeProvider.when('/', {
-            templateUrl: '/partials/home.html',
+            templateUrl: 'partials/home.html',
             controller: 'home',
             controllerAs: 'controller'
         }).when('/login', {
-            templateUrl: '/partials/login.html',
+            templateUrl: 'partials/login.html',
             controller: 'navigation',
             controllerAs: 'controller'
         }).when('/home', {
-            templateUrl: '/partials/home.html',
+            templateUrl: 'partials/home.html',
             controller: 'home',
             controllerAs: 'controller'
         }).when('/admin', {
-            templateUrl: '/partials/admin.html',
+            templateUrl: 'partials/admin.html',
             controller: 'admin',
             controllerAs: 'controller',
             resolve: {
@@ -23,19 +23,19 @@ angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'n
                 }
             }
         }).when('/profile', {
-            templateUrl: '/partials/profile.html',
+            templateUrl: 'partials/profile.html',
             controller: 'profile',
             controllerAs: 'controller'
         }).when('/employees', {
-            templateUrl: '/partials/employees.html',
+            templateUrl: 'partials/employees.html',
             controller: 'employees',
             controllerAs: 'controller'
         }).when('/evidence', {
-            templateUrl: '/partials/newevidence.html',
+            templateUrl: 'partials/newevidence.html',
             controller: 'newEvidence',
             controllerAs: 'controller'
         }).when('/myEvidence', {
-            templateUrl: '/partials/myevidence.html',
+            templateUrl: 'partials/myevidence.html',
             controller: 'myEvidences',
             controllerAs: 'controller'
         }).otherwise('/');
