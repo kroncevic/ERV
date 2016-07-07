@@ -1,19 +1,10 @@
 package hr.tvz.rome;
 
-import hr.tvz.rome.model.BusinessUnit;
-import hr.tvz.rome.model.DatePresentation;
-import hr.tvz.rome.model.Employee;
-import hr.tvz.rome.model.EvidenceType;
-import hr.tvz.rome.model.Vacation;
-import hr.tvz.rome.repository.BusinessUnitRepository;
-import hr.tvz.rome.repository.EmployeesRepository;
-import hr.tvz.rome.repository.EvidenceRepository;
-import hr.tvz.rome.repository.EvidenceTypeRepository;
-import hr.tvz.rome.repository.VacationRepository;
+import hr.tvz.rome.model.*;
+import hr.tvz.rome.repository.*;
 import hr.tvz.rome.service.DatePresentationService;
 import hr.tvz.rome.utilities.DateTimeBuilder;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,12 +28,6 @@ import java.util.List;
 @WebAppConfiguration
 public class RomeApplicationTests {
 
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource datasource() {
-        return DataSourceBuilder.create().build();
-    }
-
     @Autowired
     EmployeesRepository employeesRepository;
 
@@ -61,7 +46,7 @@ public class RomeApplicationTests {
 
     @Autowired
     BusinessUnitRepository businessUnitRepository;
-    
+
     @BeforeClass
     public static void setupJndi() throws Exception {
         JndiInit.initializeJndi();
@@ -141,6 +126,11 @@ public class RomeApplicationTests {
 
     }
 
+    @Test
+    public void deleteEvidences(){
+        evidenceRepository.deleteAll();
+    }
+
 
     @Test
     public void test3() {
@@ -157,11 +147,10 @@ public class RomeApplicationTests {
         Assert.assertNotNull(datePresentation);
     }
 
-    }
-    
+
     @Test
     public void test6() {
-    	
+
 /*    	businessUnitRepository.deleteAll();
     	
         Employee e1 = employeesRepository.findByUsername("vkovac");
@@ -209,16 +198,16 @@ public class RomeApplicationTests {
         
         e2.setBusinessUnit(admins);
         e2 = employeesRepository.saveAndFlush(e2); */
-    	
-    	Employee e1 = employeesRepository.findByUsername("mrabic");
+
+        Employee e1 = employeesRepository.findByUsername("mrabic");
         Employee e2 = employeesRepository.findByUsername("nlalic");
         Employee e3 = employeesRepository.findByUsername("hmarinovic");
         Employee e4 = employeesRepository.findByUsername("kdalic");
         Employee e5 = employeesRepository.findByUsername("vhorvat");
         Employee e6 = employeesRepository.findByUsername("skota");
         Employee e7 = employeesRepository.findByUsername("ljankovic");
-          
-        List <Employee> employeesInApps = new ArrayList<>();
+
+        List<Employee> employeesInApps = new ArrayList<>();
         employeesInApps.add(e1);
         employeesInApps.add(e2);
         employeesInApps.add(e3);
@@ -226,7 +215,7 @@ public class RomeApplicationTests {
         employeesInApps.add(e5);
         employeesInApps.add(e6);
         employeesInApps.add(e7);
-                   
+
         BusinessUnit apps = new BusinessUnit();
         apps.setName("Aplikativni odjel");
         apps.setExecutive("Leo Janković");
@@ -234,26 +223,27 @@ public class RomeApplicationTests {
 
         e1.setBusinessUnit(apps);
         e1 = employeesRepository.saveAndFlush(e1);
-         
+
         e2.setBusinessUnit(apps);
         e2 = employeesRepository.saveAndFlush(e2);
-         
+
         e3.setBusinessUnit(apps);
         e3 = employeesRepository.saveAndFlush(e3);
-          
+
         e4.setBusinessUnit(apps);
-        e4 = employeesRepository.saveAndFlush(e4); 
-        
+        e4 = employeesRepository.saveAndFlush(e4);
+
         e5.setBusinessUnit(apps);
-        e5 = employeesRepository.saveAndFlush(e5); 
-        
+        e5 = employeesRepository.saveAndFlush(e5);
+
         e6.setBusinessUnit(apps);
-        e6 = employeesRepository.saveAndFlush(e6); 
-        
+        e6 = employeesRepository.saveAndFlush(e6);
+
         e7.setBusinessUnit(apps);
-        e7 = employeesRepository.saveAndFlush(e7); 
-        
+        e7 = employeesRepository.saveAndFlush(e7);
+
 //        sales = businessUnitRepository.saveAndFlush(sales);
-        
-        
+
+
+    }
 }

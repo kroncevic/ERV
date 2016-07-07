@@ -60,7 +60,7 @@ public class Employee {
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JsonManagedReference
     private List<Vacation> vacations;
-    
+
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "BUSINESS_UNIT_ID")
     @JsonBackReference
@@ -78,8 +78,8 @@ public class Employee {
     }
 
     public Employee(String firstName, String lastName, String username, String password, String authorization,
-                    String qualifications, String vocation, String university,String workingPlace, String contract, 
-                    String email, String phoneNumber, String address,String city, String country, String citizenship,
+                    String qualifications, String vocation, String university, String workingPlace, String contract,
+                    String email, String phoneNumber, String address, String city, String country, String citizenship,
                     Date birthDate, Date employmentDate) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -264,12 +264,12 @@ public class Employee {
         this.vacations = vacations;
     }
 
-	public BusinessUnit getBusinessUnit() {
-		return businessUnit;
-	}
+    public BusinessUnit getBusinessUnit() {
+        return businessUnit;
+    }
 
-	public void setBusinessUnit(BusinessUnit businessUnit) {
-		this.businessUnit = businessUnit;
-	}
+    public void setBusinessUnit(BusinessUnit businessUnit) {
+        this.businessUnit = businessUnit;
+    }
 
 }
