@@ -15,6 +15,7 @@ public class RomeApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(RomeApplication.class, args);
+       
     }
 
     @Override

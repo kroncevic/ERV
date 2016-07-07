@@ -1,6 +1,14 @@
 angular.module('admin', []).controller('admin', function ($http, $scope, $q, $rootScope) {
 
     $scope.sharedData.title = 'Admin';
+    
+    $http.get('rest/businessUnit/').then(function (response) {
+        $scope.businessUnits = response.data;
+    });
+    
+    $scope.selectedBusinessUnit = {
+            name: undefined
+        };
 
     $http.get('rest/project/').then(function (response) {
         $scope.projects = response.data;
@@ -67,8 +75,6 @@ angular.module('admin', []).controller('admin', function ($http, $scope, $q, $ro
     $scope.newProject = false;
 
 
-
-
     $http.get('rest/employee/').then(function (response) {
         $scope.employees = response.data;
     });
@@ -98,12 +104,11 @@ angular.module('admin', []).controller('admin', function ($http, $scope, $q, $ro
     $scope.tempBirthDate = new Date();
     $scope.tempEmploymentDate = new Date();
 
-
     $scope.setEmployeeDates = function (){
       $scope.tempBirthDate = new Date($scope.selectedEmployee.birthDate);
         $scope.tempEmploymentDate = new Date($scope.selectedEmployee.employmentDate);
     };
-
+    
     var pad  = function pad(n, width, z) {
         z = z || '0';
         n = n + '';
@@ -119,7 +124,9 @@ angular.module('admin', []).controller('admin', function ($http, $scope, $q, $ro
 
         var employmentDay = pad($scope.tempEmploymentDate.getDate(), 2);
         $scope.selectedEmployee.employmentDate =  $scope.tempEmploymentDate.getFullYear() + months[$scope.tempEmploymentDate.getMonth()] + employmentDay + '000000';
-
+        
+        $scope.selectedEmployee.businessUnit = $scope.selectedBusinessUnit;
+        
         $http.post('rest/employee', $scope.selectedEmployee)
             .then(
             function (response) {
@@ -134,6 +141,7 @@ angular.module('admin', []).controller('admin', function ($http, $scope, $q, $ro
                 return $q.reject(errResponse);
             }
         );
+
 
     };
 

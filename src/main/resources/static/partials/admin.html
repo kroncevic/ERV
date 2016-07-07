@@ -166,7 +166,13 @@
 
                     <md-input-container ng-show="showContractData" class="md-block">
                     <label>Odjel</label>
-                    <input name="department" ng-model="selectedEmployee.department">
+                     <md-select ng-model="selectedBusinessUnit">
+
+                        <md-option value=""></md-option>
+
+                        <md-option ng-value="businessUnit" ng-repeat="businessUnit in businessUnits">{{businessUnit.name}}</md-option>
+
+                    </md-select>
                     </md-input-container>
 
                     <md-input-container ng-show="showContractData" class="md-block">
