@@ -1,5 +1,6 @@
 package hr.tvz.rome.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hr.tvz.rome.model.serialization.JsonDateDeserializer;
@@ -34,8 +35,6 @@ public class Employee {
 
     private String university;
 
-    private String department;
-
     private String workingPlace;
 
     private String contract;
@@ -52,7 +51,6 @@ public class Employee {
 
     private String citizenship;
 
-
     @Column(columnDefinition = "date")
     private Date birthDate;
 
@@ -62,6 +60,11 @@ public class Employee {
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JsonManagedReference
     private List<Vacation> vacations;
+    
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "BUSINESS_UNIT_ID")
+    @JsonBackReference
+    private BusinessUnit businessUnit;
 
     public Employee() {
     }
@@ -75,9 +78,9 @@ public class Employee {
     }
 
     public Employee(String firstName, String lastName, String username, String password, String authorization,
-                    String qualifications, String vocation, String university, String department,
-                    String workingPlace, String contract, String email, String phoneNumber, String address,
-                    String city, String country, String citizenship, Date birthDate, Date employmentDate) {
+                    String qualifications, String vocation, String university,String workingPlace, String contract, 
+                    String email, String phoneNumber, String address,String city, String country, String citizenship,
+                    Date birthDate, Date employmentDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -86,7 +89,6 @@ public class Employee {
         this.qualifications = qualifications;
         this.vocation = vocation;
         this.university = university;
-        this.department = department;
         this.workingPlace = workingPlace;
         this.contract = contract;
         this.email = email;
@@ -170,14 +172,6 @@ public class Employee {
 
     public void setUniversity(String university) {
         this.university = university;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     public String getWorkingPlace() {
@@ -270,5 +264,12 @@ public class Employee {
         this.vacations = vacations;
     }
 
+	public BusinessUnit getBusinessUnit() {
+		return businessUnit;
+	}
+
+	public void setBusinessUnit(BusinessUnit businessUnit) {
+		this.businessUnit = businessUnit;
+	}
 
 }

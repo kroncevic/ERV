@@ -14,7 +14,6 @@ angular.module('profile', []).controller('profile', function($http, $scope, $roo
 		self.address = response.data.address + ', ' + response.data.city + ', ' + response.data.country;
 		self.citizenship = response.data.citizenship;
 		self.birthDate = response.data.birthDate;
-		self.department = response.data.department;
 		self.workingPlace = response.data.workingPlace;
 		self.employmentDate = response.data.employmentDate;
 		self.contract = response.data.contract;
@@ -26,9 +25,16 @@ angular.module('profile', []).controller('profile', function($http, $scope, $roo
 		self.phoneNumber = response.data.phoneNumber;
 		
 		self.vacations = response.data.vacations;
+		self.businessUnit = response.data.businessUnit;
 		
 		
 		
+	});
+		
+	$http.get('rest/businessUnit/'+ $rootScope.username).then(function(response) {
+			
+		self.businessUnitName = response.data.name;	
+			
 	});
   });
 });

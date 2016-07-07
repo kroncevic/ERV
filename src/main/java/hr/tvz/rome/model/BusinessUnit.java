@@ -1,11 +1,18 @@
 package hr.tvz.rome.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class BusinessUnit {
@@ -16,12 +23,12 @@ public class BusinessUnit {
     private long id;
     
     private String name;
-    private String note;
     
-    @ManyToOne(cascade=CascadeType.MERGE)
-	private Employee executive;
-    @ManyToOne(cascade=CascadeType.MERGE)
-	private BusinessUnit parent;
+	private String executive;
+    
+    @OneToMany(mappedBy = "businessUnit", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JsonManagedReference
+    private List <Employee> employees;
     
 	public long getId() {
 		return id;
@@ -33,23 +40,21 @@ public class BusinessUnit {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getNote() {
-		return note;
+
+	public List<Employee> getEmployees() {
+		return employees;
 	}
-	public void setNote(String note) {
-		this.note = note;
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
-	public Employee getExecutive() {
+
+	public String getExecutive() {
 		return executive;
 	}
-	public void setExecutive(Employee executive) {
+
+	public void setExecutive(String executive) {
 		this.executive = executive;
-	}
-	public BusinessUnit getParent() {
-		return parent;
-	}
-	public void setParent(BusinessUnit parent) {
-		this.parent = parent;
 	}
 
 }

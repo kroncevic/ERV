@@ -9,6 +9,7 @@ public class RomeApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RomeApplication.class, args);
+       
     }
 
 }

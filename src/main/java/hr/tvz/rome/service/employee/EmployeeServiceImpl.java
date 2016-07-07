@@ -2,6 +2,7 @@ package hr.tvz.rome.service.employee;
 
 import hr.tvz.rome.controllers.entities.ChangePasswordRequest;
 import hr.tvz.rome.model.Employee;
+import hr.tvz.rome.repository.BusinessUnitRepository;
 import hr.tvz.rome.repository.EmployeesRepository;
 import hr.tvz.rome.utilities.DateTimeBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeesRepository employeesRepository;
+    
+    @Autowired
+    private BusinessUnitRepository businessUnitRepository;
 
     @Override
     public List<Employee> findAll() {
@@ -62,7 +66,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         if(employee.getAuthorization() == null || employee.getAuthorization().isEmpty()){
             employee.setAuthorization("USER");
-        }
+        }	
+        
         return employeesRepository.saveAndFlush(employee);
     }
 }
