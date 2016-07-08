@@ -1,3 +1,0 @@
-/*C11*/SET SCHEMA PUBLIC
-INSERT INTO EMPLOYEE VALUES(69,NULL,'USER','2016-07-07','hrvatsko',NULL,'neodre\u0111eno',NULL,'dmrla@adriait@hr','2016-07-07','Denis','Mrla','$2a$10$Qse59bEKXjvcMvcVA1LOwuES1NmGBBF6U3qyOvYQH9Hz86VYMR6vS','0987676555','VSS','TVZ','dmrla','in\u017eenjer informatike','programer',NULL,22)
-COMMIT

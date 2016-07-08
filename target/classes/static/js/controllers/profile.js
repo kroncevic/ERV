@@ -26,7 +26,7 @@ angular.module('profile', []).controller('profile', function($http, $scope, $roo
 		
 		self.vacations = response.data.vacations;
 		self.businessUnit = response.data.businessUnit;
-		
+		self.certificates = response.data.certificates;
 		
 		
 	});

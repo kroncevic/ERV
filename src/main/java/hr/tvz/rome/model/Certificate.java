@@ -1,6 +1,9 @@
 package hr.tvz.rome.model;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,14 +19,25 @@ public class Certificate {
 
 	 @ManyToOne(cascade=CascadeType.MERGE)
 	private Employee employee;
-	 @ManyToOne(cascade=CascadeType.MERGE)
-	private DatePresentation issueDate;
-	 @ManyToOne(cascade=CascadeType.MERGE)
-	private DatePresentation expirationDate;
-
+	
 	private String name;
-	private String note;
-
+	
+	@Column(columnDefinition = "date")
+	private Date examinationDate;
+	
+	@Column(columnDefinition = "date")
+	private Date expirationDate;
+	
+	public Certificate () {
+		
+	}
+	
+	public Certificate (String name, Date examinationDate, Date expirationDate) {
+		this.name = name;
+		this.examinationDate = examinationDate;
+		this.expirationDate = expirationDate;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -36,20 +50,12 @@ public class Certificate {
 		this.employee = employee;
 	}
 
-	public DatePresentation getIssueDate() {
-		return issueDate;
+	public Date getExaminationDate() {
+		return examinationDate;
 	}
 
-	public void setIssueDate(DatePresentation issueDate) {
-		this.issueDate = issueDate;
-	}
-
-	public DatePresentation getExpirationDate() {
-		return expirationDate;
-	}
-
-	public void setExpirationDate(DatePresentation expirationDate) {
-		this.expirationDate = expirationDate;
+	public void setExaminationDate(Date examinationDate) {
+		this.examinationDate = examinationDate;
 	}
 
 	public String getName() {
@@ -60,11 +66,11 @@ public class Certificate {
 		this.name = name;
 	}
 
-	public String getNote() {
-		return note;
+	public Date getExpirationDate() {
+		return expirationDate;
 	}
 
-	public void setNote(String note) {
-		this.note = note;
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
 	}
 }

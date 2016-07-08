@@ -1,6 +1,7 @@
 package hr.tvz.rome;
 
 import hr.tvz.rome.model.BusinessUnit;
+import hr.tvz.rome.model.Certificate;
 import hr.tvz.rome.model.DatePresentation;
 import hr.tvz.rome.model.Employee;
 import hr.tvz.rome.model.EvidenceType;
@@ -12,6 +13,7 @@ import hr.tvz.rome.repository.EvidenceTypeRepository;
 import hr.tvz.rome.repository.VacationRepository;
 import hr.tvz.rome.service.DatePresentationService;
 import hr.tvz.rome.utilities.DateTimeBuilder;
+
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.junit.Assert;
@@ -244,6 +246,28 @@ public class RomeApplicationTests {
 //        sales = businessUnitRepository.saveAndFlush(sales);
         
         
+    }
+    
+    @Test
+    public void test7() {
+        Employee employee = employeesRepository.findByUsername("vkovac");
+        Certificate certificate = new Certificate();
+        certificate.setName("Java Spring");
+        certificate.setExaminationDate(new Date());
+        certificate.setExpirationDate(DateTimeBuilder.fromDate(certificate.getExaminationDate()).
+        		addYear(10).buildDate());
+
+        //vacation.setVacationStart(new Date());
+        //vacation.setVacationEnd(DateTimeBuilder.fromDate(vacation.getVacationStart()).addHours(168).buildDate());
+
+        //vacation.setVacationDaysUsed(3);
+
+        certificate.setEmployee(employee);
+        employee.addCertificate(certificate);
+        employee = employeesRepository.saveAndFlush(employee);
+        Employee employee2 = employeesRepository.findOne(employee.getId());
+        Assert.assertNotNull(employee2);
+        Assert.assertNotNull(employee2.getCertificates());
     }
 
 }

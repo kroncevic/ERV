@@ -65,6 +65,10 @@ public class Employee {
     @JoinColumn(name = "BUSINESS_UNIT_ID")
     @JsonBackReference
     private BusinessUnit businessUnit;
+    
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JsonManagedReference
+    private List<Certificate> certificates;
 
     public Employee() {
     }
@@ -271,5 +275,17 @@ public class Employee {
 	public void setBusinessUnit(BusinessUnit businessUnit) {
 		this.businessUnit = businessUnit;
 	}
+	
+	public List<Certificate> getCertificates() {
+    	return certificates;
+    }
+    
+    public void setCertificates(List<Certificate> certificates) {
+    	this.certificates = certificates;
+    }
+    
+    public void addCertificate(Certificate certificate) {
+    	certificates.add(certificate);
+    }
 
 }

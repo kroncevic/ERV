@@ -154,8 +154,45 @@
         
         <md-tab label="Položeni certifikati">
             <md-content class="md-padding">
-                <h1 class="md-display-2">Tab Three</h1>
-                <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                 <div flex-xs flex-gt-xs="50" layout="column">
+	           			<md-card>
+	        				<md-card-title layout-padding style="background-color: #006064; padding: 0">
+	          					<md-card-title-text style="color: white">
+	            					<span class="md-headline">Položeni certifikati</span>
+	          					</md-card-title-text>
+	        				</md-card-title>
+	        				<md-card-content>
+						        <md-table-container>
+						            <table md-table>
+						                <thead md-head>
+							                <tr md-row>
+							                		
+							                    <th md-column style="text-align: center">
+							                        <span>Naziv certifikata</span>
+							                    </th>	
+							                    				
+							                    <th md-column style="text-align: center">
+							                        <span>Datum polaganja</span>
+							                    </th>	
+							                    				
+							                    <th md-column style="text-align: center">
+							                        <span>Datum isteka</span>
+							                    </th>
+							                    
+							                </tr>
+						                </thead>
+						                
+						                <tbody md-body>
+							                <tr md-row  ng-repeat="certificate in controller.certificates">
+							                    <td md-cell style="text-align: center">{{certificate.name}}</td>
+							                    <td md-cell style="text-align: center">{{certificate.examinationDate}}</td>
+							                    <td md-cell style="text-align: center">{{certificate.expirationDate}}</td>
+							                </tr>
+						                </tbody>
+						            </table>
+						        </md-table-container>
+						    </md-card-content>
+	      				</md-card>
             </md-content>
         </md-tab>
     </md-tabs>
