@@ -119,8 +119,6 @@ public class RomeApplicationTests {
         employeesRepository.save(employee);
         employee = new Employee("Miso", "Ilić", "milic", new BCryptPasswordEncoder().encode("password"), "ADMIN", "VSS", "inženjer računarstva", "FER", "vlasnik", "", "milic@adriait.hr", "0925472789", "Krapinska 18", "Zagreb", "Hrvatska", "hrvatsko", new Date(-285382800000L), new Date(1296514800000L));
         employeesRepository.save(employee);
-        employee = new Employee("John", "Doe", "admin", new BCryptPasswordEncoder().encode("password"), "ADMIN");
-        employeesRepository.save(employee);
         List<Employee> employees = employeesRepository.findAll();
         Assert.assertNotNull(employees);
 
@@ -151,9 +149,9 @@ public class RomeApplicationTests {
     @Test
     public void test6() {
 
-/*    	businessUnitRepository.deleteAll();
+    	businessUnitRepository.deleteAll();
     	
-        Employee e1 = employeesRepository.findByUsername("vkovac");
+  /*      Employee e1 = employeesRepository.findByUsername("vkovac");
         Employee e2 = employeesRepository.findByUsername("dlovric");
         Employee e3 = employeesRepository.findByUsername("lmaric");
         Employee e4 = employeesRepository.findByUsername("mpetroci");
@@ -220,6 +218,8 @@ public class RomeApplicationTests {
         apps.setName("Aplikativni odjel");
         apps.setExecutive("Leo Janković");
         apps.setEmployees(employeesInApps);
+
+        businessUnitRepository.saveAndFlush(apps);
 
         e1.setBusinessUnit(apps);
         e1 = employeesRepository.saveAndFlush(e1);
