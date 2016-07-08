@@ -26,7 +26,7 @@ public class BusinessUnit {
     
 	private String executive;
     
-    @OneToMany(mappedBy = "businessUnit", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "businessUnit", fetch = FetchType.EAGER)
     @JsonManagedReference
     private List <Employee> employees;
     
