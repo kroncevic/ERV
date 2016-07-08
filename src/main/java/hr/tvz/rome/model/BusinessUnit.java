@@ -1,5 +1,7 @@
 package hr.tvz.rome.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -17,8 +19,8 @@ public class BusinessUnit {
 
     private String executive;
 
-    @OneToMany(mappedBy = "businessUnit", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "businessUnit", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Employee> employees;
 
     public long getId() {

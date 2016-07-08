@@ -1,4 +1,4 @@
-angular.module('employees', []).controller('employees', function($http, $scope) {
+angular.module('employees', []).controller('employees', ['$http', '$scope', '$mdDialog', function($http, $scope, $mdDialog) {
 
 	$scope.sharedData.title = 'Zaposlenici';
 
@@ -10,5 +10,30 @@ angular.module('employees', []).controller('employees', function($http, $scope) 
         $scope.employees = response.data;
     });
 
+    $scope.showEmployeeProfile = function (employee) {
 
-});
+        $mdDialog.show({
+            controller: EmployeeProfile,
+            controllerAs: 'controller',
+            templateUrl: 'partials/dialogs/employeeProfile.html',
+            parent: angular.element(document.body),
+            clickOutsideToClose: true,
+            locals:{
+                employee: employee
+            }
+        })
+    };
+
+
+}]);
+
+function EmployeeProfile($scope, $mdDialog, employee) {
+
+    $scope.employee = employee;
+
+    $scope.hideDialog = function () {
+        $mdDialog.hide();
+    };
+
+
+}

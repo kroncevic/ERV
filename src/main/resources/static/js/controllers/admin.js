@@ -1,14 +1,14 @@
 angular.module('admin', []).controller('admin', function ($http, $scope, $q, $rootScope) {
 
     $scope.sharedData.title = 'Admin';
-    
+
     $http.get('rest/businessUnit/').then(function (response) {
         $scope.businessUnits = response.data;
     });
-    
+
     $scope.selectedBusinessUnit = {
-            name: undefined
-        };
+        name: undefined
+    };
 
     $http.get('rest/project/').then(function (response) {
         $scope.projects = response.data;
@@ -104,12 +104,13 @@ angular.module('admin', []).controller('admin', function ($http, $scope, $q, $ro
     $scope.tempBirthDate = new Date();
     $scope.tempEmploymentDate = new Date();
 
-    $scope.setEmployeeDates = function (){
-      $scope.tempBirthDate = new Date($scope.selectedEmployee.birthDate);
+    $scope.setEmployeeInfo = function () {
+        $scope.tempBirthDate = new Date($scope.selectedEmployee.birthDate);
         $scope.tempEmploymentDate = new Date($scope.selectedEmployee.employmentDate);
+        $scope.selectedBusinessUnit = $scope.selectedEmployee.businessUnit;
     };
-    
-    var pad  = function pad(n, width, z) {
+
+    var pad = function pad(n, width, z) {
         z = z || '0';
         n = n + '';
         return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
@@ -120,13 +121,13 @@ angular.module('admin', []).controller('admin', function ($http, $scope, $q, $ro
         var months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
         var birthDay = pad($scope.tempBirthDate.getDate(), 2);
-        $scope.selectedEmployee.birthDate =  $scope.tempBirthDate.getFullYear() + months[$scope.tempBirthDate.getMonth()] + birthDay + '000000';
+        $scope.selectedEmployee.birthDate = $scope.tempBirthDate.getFullYear() + months[$scope.tempBirthDate.getMonth()] + birthDay + '000000';
 
         var employmentDay = pad($scope.tempEmploymentDate.getDate(), 2);
-        $scope.selectedEmployee.employmentDate =  $scope.tempEmploymentDate.getFullYear() + months[$scope.tempEmploymentDate.getMonth()] + employmentDay + '000000';
-        
+        $scope.selectedEmployee.employmentDate = $scope.tempEmploymentDate.getFullYear() + months[$scope.tempEmploymentDate.getMonth()] + employmentDay + '000000';
+
         $scope.selectedEmployee.businessUnit = $scope.selectedBusinessUnit;
-        
+
         $http.post('rest/employee', $scope.selectedEmployee)
             .then(
             function (response) {

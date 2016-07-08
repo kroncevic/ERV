@@ -18,6 +18,7 @@
                 <i class="material-icons md-fab" style="color: white; vertical-align: middle; text-transform: none">search</i>
 
             </md-button>
+
         </md-content>
         <md-list>
             <md-item ng-repeat="item in employees | filter: searchName" class="md-3-line">
@@ -33,6 +34,15 @@
 						<h5 style="margin-top: 10px; margin-bottom: 10px">{{item.email}}</h5>
 						<h5 style="margin-top: 10px; margin-bottom: 10px">{{item.phoneNumber}}</h5>
                     </div>
+                    <div flex></div>
+
+                    <md-button
+                            ng-click="showEmployeeProfile(item)" class="md-primary md-fab md-mini" >
+
+                        <i class="material-icons md-fab" style="color: white; vertical-align: middle; text-transform: none">info_outline</i>
+
+                    </md-button>
+
                 </md-item-content>
                 <md-divider></md-divider>
             </md-item>

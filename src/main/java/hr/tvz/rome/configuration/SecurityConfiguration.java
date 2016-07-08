@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/**/*.png",
                         "/**/*.svg"
                 ).permitAll()
-                .antMatchers("rest/auth").permitAll()
+                .antMatchers("rest/auth", "/rest/auth").permitAll()
                 .anyRequest().authenticated();
 
         httpSecurity

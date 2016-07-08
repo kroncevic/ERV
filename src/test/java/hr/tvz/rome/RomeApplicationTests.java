@@ -9,15 +9,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import javax.sql.DataSource;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -125,7 +121,7 @@ public class RomeApplicationTests {
     }
 
     @Test
-    public void deleteEvidences(){
+    public void deleteEvidences() {
         evidenceRepository.deleteAll();
     }
 
@@ -149,53 +145,57 @@ public class RomeApplicationTests {
     @Test
     public void test6() {
 
-    	businessUnitRepository.deleteAll();
-    	
-  /*      Employee e1 = employeesRepository.findByUsername("vkovac");
-        Employee e2 = employeesRepository.findByUsername("dlovric");
-        Employee e3 = employeesRepository.findByUsername("lmaric");
-        Employee e4 = employeesRepository.findByUsername("mpetroci");
-        
-        List <Employee> employeesInSales = new ArrayList<>();
-        employeesInSales.add(e1);
-        employeesInSales.add(e2);
-        employeesInSales.add(e3);
-        employeesInSales.add(e4);
-        
+        businessUnitRepository.deleteAll();
+
+        Employee e11 = employeesRepository.findByUsername("vkovac");
+        Employee e22 = employeesRepository.findByUsername("dlovric");
+        Employee e33 = employeesRepository.findByUsername("lmaric");
+        Employee e44 = employeesRepository.findByUsername("mpetroci");
+
+        List<Employee> employeesInSales = new ArrayList<>();
+        employeesInSales.add(e11);
+        employeesInSales.add(e22);
+        employeesInSales.add(e33);
+        employeesInSales.add(e44);
+
         BusinessUnit sales = new BusinessUnit();
         sales.setName("Odjel prodaje");
         sales.setExecutive("Mila Petroci");
         sales.setEmployees(employeesInSales);
 
-        e1.setBusinessUnit(sales);
-        e1 = employeesRepository.saveAndFlush(e1);
-        
-        e2.setBusinessUnit(sales);
-        e2 = employeesRepository.saveAndFlush(e2);
-        
-        e3.setBusinessUnit(sales);
-        e3 = employeesRepository.saveAndFlush(e3);
-        
-        e4.setBusinessUnit(sales);
-        e4 = employeesRepository.saveAndFlush(e4); 
-    	
-    	Employee e1 = employeesRepository.findByUsername("vcavka");
-        Employee e2 = employeesRepository.findByUsername("ajug");
-        
-        List <Employee> employeesInAdmins = new ArrayList<>();
-        employeesInAdmins.add(e1);
-        employeesInAdmins.add(e2);
-        
-        BusinessUnit admins = new BusinessUnit();
-        sales.setName("Mrežni odjel");
-        sales.setExecutive("Igor Tomić");
-        sales.setEmployees(employeesInAdmins);
+        businessUnitRepository.saveAndFlush(sales);
 
-        e1.setBusinessUnit(admins);
-        e1 = employeesRepository.saveAndFlush(e1);
-        
-        e2.setBusinessUnit(admins);
-        e2 = employeesRepository.saveAndFlush(e2); */
+        e11.setBusinessUnit(sales);
+        e11 = employeesRepository.saveAndFlush(e11);
+
+        e22.setBusinessUnit(sales);
+        e22 = employeesRepository.saveAndFlush(e22);
+
+        e33.setBusinessUnit(sales);
+        e33 = employeesRepository.saveAndFlush(e33);
+
+        e44.setBusinessUnit(sales);
+        e44 = employeesRepository.saveAndFlush(e44);
+
+        Employee e111 = employeesRepository.findByUsername("vcavka");
+        Employee e222 = employeesRepository.findByUsername("ajug");
+
+        List<Employee> employeesInAdmins = new ArrayList<>();
+        employeesInAdmins.add(e111);
+        employeesInAdmins.add(e222);
+
+        BusinessUnit admins = new BusinessUnit();
+        admins.setName("Mrežni odjel");
+        admins.setExecutive("Igor Tomić");
+        admins.setEmployees(employeesInAdmins);
+
+        businessUnitRepository.saveAndFlush(admins);
+
+        e111.setBusinessUnit(admins);
+        e111 = employeesRepository.saveAndFlush(e111);
+
+        e222.setBusinessUnit(admins);
+        e222 = employeesRepository.saveAndFlush(e222);
 
         Employee e1 = employeesRepository.findByUsername("mrabic");
         Employee e2 = employeesRepository.findByUsername("nlalic");
@@ -241,9 +241,6 @@ public class RomeApplicationTests {
 
         e7.setBusinessUnit(apps);
         e7 = employeesRepository.saveAndFlush(e7);
-
-//        sales = businessUnitRepository.saveAndFlush(sales);
-
 
     }
 }

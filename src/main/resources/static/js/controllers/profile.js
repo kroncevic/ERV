@@ -26,15 +26,10 @@ angular.module('profile', []).controller('profile', function($http, $scope, $roo
 		
 		self.vacations = response.data.vacations;
 		self.businessUnit = response.data.businessUnit;
-		
-		
-		
+
 	});
-		
-	$http.get('rest/businessUnit/'+ $rootScope.username).then(function(response) {
-			
-		self.businessUnitName = response.data.name;	
-			
-	});
+
+
+
   });
 });

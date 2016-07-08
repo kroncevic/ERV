@@ -1,0 +1,184 @@
+<md-dialog ng-cloak flex="60">
+    <md-tabs md-dynamic-height md-border-bottom md-progress="promise">
+        <md-tab label="Osobni podaci i evidencije">
+            <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="50" layout="column">
+                    <md-card>
+                        <md-card-title layout-padding style="background-color: #006064; padding: 0">
+                            <md-card-title-text style="color: white">
+                                <span class="md-headline">Osobni podaci</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p></p>
+
+                            <p>Ime i prezime: {{employee.firstName}} {{employee.lastName}}</p>
+
+                            <p>Državljanstvo: {{employee.citizenship}}</p>
+
+                            <p>Datum rođenja: {{employee.birthDate | date:'dd.MM.yyyy.'}}</p>
+
+                            <p>Adresa: {{employee.address}}</p>
+                        </md-card-content>
+                    </md-card>
+                    <md-card>
+                        <md-card-title layout-padding style="background-color: #006064; padding: 0">
+                            <md-card-title-text style="color: white">
+                                <span class="md-headline">Podaci o stručnoj spremi</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p></p>
+
+                            <p>Stručna sprema: {{employee.qualifications}}</p>
+
+                            <p>Zvanje: {{employee.vocation}}</p>
+
+                            <p>Fakultet: {{employee.university}}</p>
+                        </md-card-content>
+                    </md-card>
+                </div>
+                <div flex-xs flex-gt-xs="50" layout="column">
+                    <md-card>
+                        <md-card-title layout-padding style="background-color: #006064; padding: 0">
+                            <md-card-title-text style="color: white">
+                                <span class="md-headline">Podaci iz ugovora o radu</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p></p>
+
+                            <p>Odjel: {{employee.businessUnit.name}}</p>
+
+                            <p>Radno mjesto: {{employee.workingPlace}}</p>
+
+                            <p>Datum početka rada: {{employee.employmentDate | date:'dd.MM.yyyy.'}}</p>
+
+                            <p>Trajanje ugovora: {{employee.contract}}</p>
+                        </md-card-content>
+                    </md-card>
+                    <md-card>
+                        <md-card-title layout-padding style="background-color: #006064; padding: 0">
+                            <md-card-title-text style="color: white">
+                                <span class="md-headline">Korisnički podaci</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p></p>
+
+                            <p>Korisničko ime: {{employee.username}}</p>
+
+                            <p>E-mail: {{employee.email}}</p>
+
+                            <p>Mobitel: {{employee.phoneNumber}}</p>
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </md-content>
+        </md-tab>
+
+
+        <md-tab label="Korištenje godišnjeg odmora">
+            <md-content class="md-padding">
+                <div flex layout="column">
+                    <md-card>
+                        <md-card-title layout-padding style="background-color: #006064; padding: 0">
+                            <md-card-title-text style="color: white">
+                                <span class="md-headline">Broj dana godišnjeg odmora</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <md-table-container>
+                                <table md-table>
+                                    <thead md-head>
+                                    <tr md-row>
+
+                                        <th md-column style="text-align: center">
+                                            <span>Broj odobrenih dana</span>
+                                        </th>
+
+                                        <th md-column style="text-align: center">
+                                            <span>Broj iskorištenih dana</span>
+                                        </th>
+
+                                        <th md-column style="text-align: center">
+                                            <span>Broj preostalih dana</span>
+                                        </th>
+
+                                    </tr>
+                                    </thead>
+
+                                    <tbody md-body>
+                                    <tr md-row ng-repeat="vacation in employee.vacations">
+                                        <td md-cell style="text-align: center">{{vacation.vacationDaysAllowed}}</td>
+                                        <td md-cell style="text-align: center">{{vacation.vacationDaysUsedAll}}</td>
+                                        <td md-cell style="text-align: center">{{vacation.vacationDaysLeft}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </md-table-container>
+                        </md-card-content>
+                    </md-card>
+
+                    <md-card>
+                        <md-card-title layout-padding style="background-color: #006064; padding: 0">
+                            <md-card-title-text style="color: white">
+                                <span class="md-headline">Iskorišten godišnji odmor</span>
+                            </md-card-title-text>
+                        </md-card-title>
+
+                        <md-card-content>
+                            <md-table-container>
+                                <table md-table>
+                                    <thead md-head>
+                                    <tr md-row>
+
+                                        <th md-column style="text-align: center">
+                                            <span>Broj dana</span>
+                                        </th>
+
+                                        <th md-column style="text-align: center">
+                                            <span>Datum početka</span>
+                                        </th>
+
+                                        <th md-column style="text-align: center">
+                                            <span>Datum završetka</span>
+                                        </th>
+
+                                    </tr>
+                                    </thead>
+
+                                    <tbody md-body>
+                                    <tr md-row
+                                        ng-repeat="vacation in employee.vacations">
+                                        <td md-cell style="text-align: center">{{vacation.vacationDaysUsed}}</td>
+                                        <td md-cell style="text-align: center">{{vacation.vacationStart |
+                                            date:'dd.MM.yyyy'}}
+                                        </td>
+                                        <td md-cell style="text-align: center">{{vacation.vacationEnd |
+                                            date:'dd.MM.yyyy'}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </md-table-container>
+                        </md-card-content>
+
+                    </md-card>
+                </div>
+            </md-content>
+        </md-tab>
+
+
+        <md-tab label="Položeni certifikati">
+            <md-content class="md-padding">
+                <h1 class="md-display-2">Tab Three</h1>
+
+                <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie
+                    dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi.
+                    Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam,
+                    congue eu enim scelerisque, finibus commodo lectus.</p>
+            </md-content>
+        </md-tab>
+    </md-tabs>
+</md-dialog>

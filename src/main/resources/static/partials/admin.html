@@ -40,7 +40,7 @@
 
                 <md-input-container style="width: 100%">
                     <label>Zaposlenik</label>
-                    <md-select ng-model="selectedEmployee" md-on-close="setEmployeeDates()">
+                    <md-select ng-model="selectedEmployee" md-on-close="setEmployeeInfo()">
 
                         <md-option value=""></md-option>
 
@@ -166,7 +166,7 @@
 
                     <md-input-container ng-show="showContractData" class="md-block">
                     <label>Odjel</label>
-                     <md-select ng-model="selectedBusinessUnit">
+                     <md-select ng-model="selectedBusinessUnit" ng-model-options="{trackBy: '$value.id'}">
 
                         <md-option value=""></md-option>
 

@@ -1,6 +1,6 @@
 package hr.tvz.rome.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,7 +13,7 @@ public class Vacation {
     private long id;
 
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JsonBackReference
+    @JsonIgnore
     private Employee employee;
 
     private Integer vacationDaysAllowed;

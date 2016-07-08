@@ -1,7 +1,5 @@
 package hr.tvz.rome.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import hr.tvz.rome.model.serialization.JsonDateDeserializer;
 
@@ -58,12 +56,10 @@ public class Employee {
     private Date employmentDate;
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JsonManagedReference
     private List<Vacation> vacations;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "BUSINESS_UNIT_ID")
-    @JsonBackReference
     private BusinessUnit businessUnit;
 
     public Employee() {
