@@ -271,5 +271,8 @@ public class RomeApplicationTests {
         Employee employee2 = employeesRepository.findOne(employee.getId());
         Assert.assertNotNull(employee2);
         Assert.assertNotNull(employee2.getCertificates());
+
+        String name = "aaa";
+
     }
 }
