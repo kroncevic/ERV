@@ -1,70 +1,72 @@
 package hr.tvz.rome.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Certificate {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-	 @ManyToOne(cascade=CascadeType.MERGE)
-	private Employee employee;
-	 @ManyToOne(cascade=CascadeType.MERGE)
-	private DatePresentation issueDate;
-	 @ManyToOne(cascade=CascadeType.MERGE)
-	private DatePresentation expirationDate;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JsonIgnore
+    private Employee employee;
 
-	private String name;
-	private String note;
+    private String name;
 
-	public long getId() {
-		return id;
-	}
+    @Column(columnDefinition = "date")
+    private Date examinationDate;
 
-	public Employee getEmployee() {
-		return employee;
-	}
+    @Column(columnDefinition = "date")
+    private Date expirationDate;
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
+    public Certificate() {
 
-	public DatePresentation getIssueDate() {
-		return issueDate;
-	}
+    }
 
-	public void setIssueDate(DatePresentation issueDate) {
-		this.issueDate = issueDate;
-	}
+    public Certificate(String name, Date examinationDate, Date expirationDate) {
+        this.name = name;
+        this.examinationDate = examinationDate;
+        this.expirationDate = expirationDate;
+    }
 
-	public DatePresentation getExpirationDate() {
-		return expirationDate;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setExpirationDate(DatePresentation expirationDate) {
-		this.expirationDate = expirationDate;
-	}
+    public Employee getEmployee() {
+        return employee;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Date getExaminationDate() {
+        return examinationDate;
+    }
 
-	public String getNote() {
-		return note;
-	}
+    public void setExaminationDate(Date examinationDate) {
+        this.examinationDate = examinationDate;
+    }
 
-	public void setNote(String note) {
-		this.note = note;
-	}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
 }

@@ -1,9 +1,15 @@
 package hr.tvz.rome;
 
 import hr.tvz.rome.model.*;
+import hr.tvz.rome.model.Certificate;
+import hr.tvz.rome.model.DatePresentation;
+import hr.tvz.rome.model.Employee;
+import hr.tvz.rome.model.EvidenceType;
+import hr.tvz.rome.model.Vacation;
 import hr.tvz.rome.repository.*;
 import hr.tvz.rome.service.DatePresentationService;
 import hr.tvz.rome.utilities.DateTimeBuilder;
+
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -42,6 +48,9 @@ public class RomeApplicationTests {
 
     @Autowired
     BusinessUnitRepository businessUnitRepository;
+
+    @Autowired
+    CertificateRepository certificateRepository;
 
     @BeforeClass
     public static void setupJndi() throws Exception {
@@ -242,5 +251,25 @@ public class RomeApplicationTests {
         e7.setBusinessUnit(apps);
         e7 = employeesRepository.saveAndFlush(e7);
 
+    }
+    
+    @Test
+    public void test7() {
+        Employee employee = employeesRepository.findByUsername("itomic");
+
+        Certificate certificate = new Certificate();
+        certificate.setName("Java Spring");
+        certificate.setExaminationDate(new Date());
+        certificate.setExpirationDate(DateTimeBuilder.fromDate(certificate.getExaminationDate()).
+        		addYear(10).buildDate());
+        certificate.setEmployee(employee);
+
+        certificateRepository.saveAndFlush(certificate);
+
+        employee.addCertificate(certificate);
+        employee = employeesRepository.saveAndFlush(employee);
+        Employee employee2 = employeesRepository.findOne(employee.getId());
+        Assert.assertNotNull(employee2);
+        Assert.assertNotNull(employee2.getCertificates());
     }
 }
