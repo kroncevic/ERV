@@ -258,7 +258,7 @@ public class RomeApplicationTests {
         Employee employee = employeesRepository.findByUsername("itomic");
 
         Certificate certificate = new Certificate();
-        certificate.setName("Java Spring");
+        certificate.setName("Java OCA");
         certificate.setExaminationDate(new Date());
         certificate.setExpirationDate(DateTimeBuilder.fromDate(certificate.getExaminationDate()).
         		addYear(10).buildDate());
@@ -271,8 +271,6 @@ public class RomeApplicationTests {
         Employee employee2 = employeesRepository.findOne(employee.getId());
         Assert.assertNotNull(employee2);
         Assert.assertNotNull(employee2.getCertificates());
-
-        String name = "aaa";
 
     }
 }
