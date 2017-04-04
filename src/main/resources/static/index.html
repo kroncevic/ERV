@@ -43,7 +43,6 @@
 
             <p style="padding: 0">
                 <md-divider></md-divider>
-                <md-subheader>Navigacija</md-subheader>
                 <md-button
                         style="font-size: 18px; text-transform: none; margin: 0; border-radius: 0; height: 50px; text-align:left"
                         layout-fill
@@ -81,8 +80,7 @@
                 </md-button>
 
                 <md-divider></md-divider>
-                <md-subheader>Praćenje radnog vremena</md-subheader>
-
+                <md-divider></md-divider>
                 <md-button
                         style="font-size: 18px; text-transform: none; margin: 0;  border-radius: 0; height: 50px; text-align:left"
                         layout-fill
@@ -121,24 +119,24 @@
             <md-menu>
 
                 <md-button aria-label="Upravljanje računom" class="md-raised" ng-click="nav.openMenu($mdOpenMenu, $event)" name="accountMenu">
-                    <i class="material-icons" style="color: #00BCD4; vertical-align: middle; text-transform: none;">account_balance</i>
-                    <span style="color: #00BCD4; vertical-align: middle">Račun</span>
+                    <i class="material-icons" style="color: #4CAF50; vertical-align: middle; text-transform: none;">account_balance</i>
+                    <span style="color: #4CAF50; vertical-align: middle">Račun</span>
                 </md-button>
 
                 <md-menu-content width="4">
                     <md-menu-item>
                         <md-button ng-click="nav.logout()" class="md-raised" name="logoutButton">
-                            <i class="material-icons" style="color: #00BCD4; vertical-align: middle; text-transform: none;  -ms-transform: rotate(180deg); /* IE 9 */
+                            <i class="material-icons" style="color: #4CAF50; vertical-align: middle; text-transform: none;  -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
     transform: rotate(180deg);">exit_to_app</i>
-                            <span style="color: #00BCD4; vertical-align: middle">Odjava</span>
+                            <span style="color: #4CAF50; vertical-align: middle">Odjava</span>
                         </md-button>
                     </md-menu-item>
                     <md-menu-divider></md-menu-divider>
                     <md-menu-item>
                         <md-button ng-click="nav.changePassword()">
-                            <i class="material-icons" style="color: #00BCD4; vertical-align: middle; text-transform: none; ">lock</i>
-                            <span style="color: #00BCD4; vertical-align: middle">Promjena zaporke</span>
+                            <i class="material-icons" style="color: #4CAF50; vertical-align: middle; text-transform: none; ">lock</i>
+                            <span style="color: #4CAF50; vertical-align: middle">Promjena zaporke</span>
                         </md-button>
                     </md-menu-item>
                 </md-menu-content>

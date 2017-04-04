@@ -55,7 +55,7 @@ angular.module('app', ['ngRoute', 'ngMaterial', 'md.data.table', 'ngMdIcons', 'n
         'use strict';
 
         $mdThemingProvider.theme('default')
-            .primaryPalette('cyan',
+            .primaryPalette('green',
             {})
             .warnPalette('red', {
                 'default': '900'

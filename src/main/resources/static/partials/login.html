@@ -2,7 +2,7 @@
 
     <md-card style="width: 500px">
     
-    	<md-card-header style="background-color: #00BCD4; color: white">
+    	<md-card-header style="background-color: #4CAF50; color: white">
     	
     		<span style="vertical-align: left">PRIJAVA</span>
     	
@@ -10,7 +10,7 @@
 
         <form name="loginForm" layout-padding  style= "padding-top: 20px">
 
-            <span style="color: #F44336">{{controller.errorMsg}}</span>
+            <span style="color: #E5675E">{{controller.errorMsg}}</span>
 
             <md-input-container class="md-block">
             
@@ -46,7 +46,7 @@
 
 			<div layout="row" layout-align="end" flex>
 			
-            	<md-button type= "submit" ng-disabled="loginForm.$invalid || isUnchanged(user)"
+            	<md-button type= "submit"
             		ng-click="controller.login()" class="md-raised md-primary" name="loginButton">
             			
                 	<i class="material-icons" style="color: white; vertical-align: middle; text-transform: none">exit_to_app</i>
