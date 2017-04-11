@@ -6,9 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-/**
- * Created by mmajcenic on 5.10.2015..
- */
 public enum WebBrowser {
 
     CHROME, FIREFOX, IE;
