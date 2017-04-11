@@ -17,9 +17,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Marko on 15.5.2016..
- */
+
 @Component
 public class JdbcAuthenticationProvider implements AuthenticationProvider {
 

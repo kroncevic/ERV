@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
-/**
- * Created by Marko on 15.5.2016..
- */
 @RestController
 public class UserController {
 

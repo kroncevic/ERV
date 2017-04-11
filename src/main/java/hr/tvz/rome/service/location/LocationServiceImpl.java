@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by Marko on 18.6.2016..
- */
 @Service
 public class LocationServiceImpl implements LocationService {
 

@@ -7,9 +7,6 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Marko on 22.5.2016..
- */
 @Entity
 public class Employee {
 

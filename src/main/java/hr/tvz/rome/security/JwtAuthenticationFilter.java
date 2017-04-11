@@ -20,9 +20,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Marko on 26.5.2016..
- */
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private static final String HEADER = "Authorization";

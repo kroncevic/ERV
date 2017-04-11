@@ -11,9 +11,6 @@ import java.util.regex.Pattern;
 
 import static java.lang.Math.toIntExact;
 
-/**
- * Created by mlado on 30.5.2015..
- */
 public class DateTimeBuilder {
 
     final private DateTime initialDateTime;

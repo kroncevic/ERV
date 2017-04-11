@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by Marko on 22.5.2016..
- */
 @RestController
 @RequestMapping("/rest")
 public class EmployeeController {

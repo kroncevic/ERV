@@ -5,9 +5,6 @@ import hr.tvz.rome.model.EvidenceNew;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by marko on 6/7/2016.
- */
 public class EvidenceDecorator {
 
     private final static String dateFormat = "dd.MM.yyyy HH:mm:ss";

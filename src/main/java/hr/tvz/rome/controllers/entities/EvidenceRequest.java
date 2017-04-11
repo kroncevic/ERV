@@ -1,8 +1,5 @@
 package hr.tvz.rome.controllers.entities;
 
-/**
- * Created by marko on 6/6/2016.
- */
 public class EvidenceRequest {
 
     private String username;

@@ -4,9 +4,6 @@ import hr.tvz.rome.model.Project;
 
 import java.util.List;
 
-/**
- * Created by Marko on 18.6.2016..
- */
 public interface ProjectService {
 
     List<Project> findAll();

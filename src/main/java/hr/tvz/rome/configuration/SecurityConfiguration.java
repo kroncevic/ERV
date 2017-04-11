@@ -1,6 +1,5 @@
 package hr.tvz.rome.configuration;
 
-
 import hr.tvz.rome.security.JwtAuthenticationEntryPoint;
 import hr.tvz.rome.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * Created by Marko on 14.5.2016..
- */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)

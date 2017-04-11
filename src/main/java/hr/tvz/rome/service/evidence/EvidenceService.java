@@ -6,9 +6,6 @@ import hr.tvz.rome.model.decorators.EvidenceDecorator;
 
 import java.util.List;
 
-/**
- * Created by Marko on 11.6.2016..
- */
 public interface EvidenceService {
 
     EvidenceNew create(EvidenceRequest evidenceRequest);

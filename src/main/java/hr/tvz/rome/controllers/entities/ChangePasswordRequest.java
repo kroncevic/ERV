@@ -1,8 +1,5 @@
 package hr.tvz.rome.controllers.entities;
 
-/**
- * Created by Marko on 12.6.2016..
- */
 public class ChangePasswordRequest {
 
     private String oldPassword;

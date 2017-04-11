@@ -10,9 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-/**
- * Created by Marko on 11.6.2016..
- */
 @Service
 public class EvidenceServiceImpl implements EvidenceService {
 

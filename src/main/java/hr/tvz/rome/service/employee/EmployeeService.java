@@ -5,9 +5,6 @@ import hr.tvz.rome.model.Employee;
 
 import java.util.List;
 
-/**
- * Created by Marko on 12.6.2016..
- */
 public interface EmployeeService {
 
     List<Employee> findAll();

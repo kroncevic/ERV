@@ -5,9 +5,6 @@ import hr.tvz.rome.model.Project;
 
 import java.util.List;
 
-/**
- * Created by Marko on 18.6.2016..
- */
 public interface LocationService {
 
     List<Location> findAll();

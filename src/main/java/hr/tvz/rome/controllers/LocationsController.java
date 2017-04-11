@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by Marko on 18.6.2016..
- */
 @RestController
 @RequestMapping("/rest")
 public class LocationsController {
